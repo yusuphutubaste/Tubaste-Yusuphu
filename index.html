@@ -29,13 +29,45 @@
             font-size: 1.2rem; 
             color: #e0e0e0; 
         } 
+        
+        /* --- MENU STYLES ADDED HERE --- */
+        .menu-btn {
+            display: inline-block;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: 0.4s;
+            border-radius: 2px;
+        }
+        .nav-links {
+            display: none; 
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #00d2ff;
+        }
+        .nav-links.active {
+            display: flex;
+        }
     </style> 
 </head> 
 <body>
 
     <div class="container">
-        <h1>Hello World! 🚀</h1>       
- <!-- Hamburger Menu Button -->
+        <!-- Hamburger Menu Button placed cleanly above your title -->
         <div class="menu-btn" onclick="toggleMenu()">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -49,5 +81,17 @@
             <a href="#">Projects</a>
             <a href="#">Contact</a>
         </div>
+
+        <h1>Hello World! 🚀</h1>
+        <p>I coded this website directly inside GitHub!</p>
+    </div>
+
+    <!-- JavaScript function to open and close the menu links -->
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("navLinks");
+            menu.classList.toggle("active");
+        }
+    </script>
 </body>
 </html>
