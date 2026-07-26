@@ -1,318 +1,42 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tubaste Yusuphu | EVERYTHING IS
-CONNECTED.</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>My Live Website</title>
     <style>
-        :root {
-            --bg-black: #050505;
-            --gold: #D4AF37;
-            --blue: #0066FF;
-            --white: #FFFFFF;
-            --soft-gray: #A0A0A0;
-            --card-bg: #0D0D0D;
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin: 0;
         }
-
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { 
-            background-color: var(--bg-black); 
-            color: var(--white); 
-            font-family: 'Inter', sans-serif; 
-            line-height: 1.6;
-            overflow-x: hidden;
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
-
-        /* --- 1. HEADER / NAVIGATION --- */
-        header {
-            position: fixed; width: 100%; top: 0; z-index: 1000;
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 8%; background: rgba(5,5,5,0.95);
-            backdrop-filter: blur(10px); border-bottom: 1px solid rgba(212,175,55,0.1);
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
-        .logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.4rem; letter-spacing: 2px; }
-        .logo span { color: var(--gold); }
-        
-        .desktop-nav { display: flex; gap: 30px; list-style: none; align-items: center; }
-        .desktop-nav a { text-decoration: none; color: var(--soft-gray); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; transition: var(--transition); }
-        .desktop-nav a:hover { color: var(--gold); }
-        
-        .btn-gold { background: var(--gold); color: black; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
-
-        /* Mobile Menu Elements */
-        .menu-trigger { display: none; font-size: 1.8rem; cursor: pointer; }
-        .mobile-overlay {
-            position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
-            background: var(--bg-black); z-index: 2000; transition: 0.5s ease-in-out;
-            display: flex; flex-direction: column; padding: 100px 40px; gap: 20px;
-        }
-        .mobile-overlay.active { right: 0; }
-        .close-menu { position: absolute; top: 20px; right: 40px; font-size: 2rem; cursor: pointer; }
-        .mobile-overlay a { font-size: 1.8rem; color: var(--white); text-decoration: none; font-family: 'Montserrat'; text-transform: uppercase; }
-
-        /* --- 2. HERO SECTION --- */
-        .hero {
-            height: 100vh; display: flex; align-items: center; justify-content: space-between;
-            padding: 0 8%; background: radial-gradient(circle at 70% 30%, #001a33 0%, #050505 60%);
-        }
-        .hero-left { flex: 1; }
-        .hero-right { flex: 1; display: flex; justify-content: center; }
-        .studio-label { color: var(--gold); letter-spacing: 5px; font-weight: 700; font-size: 0.9rem; margin-bottom: 15px; display: block; }
-        .hero h1 { font-family: 'Montserrat'; font-size: 4rem; line-height: 1.1; margin-bottom: 25px; font-weight: 900; text-transform: uppercase; }
-        .hero p { color: var(--soft-gray); max-width: 500px; margin-bottom: 40px; font-size: 1.1rem; }
-        .btn-container { display: flex; gap: 20px; }
-        .btn-secondary { border: 1px solid var(--blue); color: var(--blue); padding: 15px 30px; text-decoration: none; font-weight: 700; border-radius: 2px; }
-        .mockup-box { width: 90%; height: 400px; background: #0a0a0a; border: 1px solid #222; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #333; position: relative; }
-
-        /* --- 3. ABOUT SECTION --- */
-        .section { padding: 100px 8%; }
-        .about-wrap { display: flex; gap: 80px; align-items: center; }
-        .about-image { flex: 1; height: 600px; background: #111; border: 1px solid var(--gold); }
-        .about-text { flex: 1; }
-        .about-text h2 { font-family: 'Montserrat'; font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
-        .about-item { margin-bottom: 30px; }
-        .about-item h3 { color: var(--white); font-size: 1.2rem; border-bottom: 2px solid var(--gold); display: inline-block; margin-bottom: 10px; }
-
-        /* --- 4. SERVICES --- */
-        .services-header { text-align: center; margin-bottom: 60px; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-        .service-card { 
-            background: var(--card-bg); padding: 50px 30px; border: 1px solid #1a1a1a; 
-            transition: var(--transition); text-align: left; position: relative;
-        }
-        .service-card:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,102,255,0.1); }
-        .service-card h4 { font-family: 'Montserrat'; margin-bottom: 15px; font-size: 1.3rem; }
-        .learn-more { color: var(--gold); text-decoration: none; font-weight: 700; margin-top: 15px; display: inline-block; }
-
-        /* --- 5. YOUTUBE --- */
-        .yt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin: 40px 0; }
-        .vid-card { background: #000; border: 1px solid #1a1a1a; }
-        .vid-thumb { width: 100%; aspect-ratio: 16/9; background: #111; }
-        .vid-info { padding: 20px; }
-        .vid-info h5 { font-family: 'Montserrat'; margin-bottom: 10px; }
-
-        /* --- 6. PORTFOLIO --- */
-        .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .port-box { 
-            position: relative; aspect-ratio: 1/1; background: #111; overflow: hidden; 
-            border: 1px solid #1a1a1a; cursor: pointer;
-        }
-        .port-box:hover { border: 2px solid var(--gold); }
-        .port-hover { 
-            position: absolute; width: 100%; height: 100%; top: 0; left: 0;
-            background: rgba(0,0,0,0.9); display: flex; flex-direction: column;
-            justify-content: center; align-items: center; opacity: 0; transition: var(--transition);
-        }
-        .port-box:hover .port-hover { opacity: 1; }
-
-        /* --- 8. CONTACT --- */
-        .contact-container { display: flex; gap: 80px; }
-        .contact-info { flex: 1; }
-        .contact-form { flex: 1.5; background: #080808; padding: 40px; border: 1px solid #111; }
-        .field { margin-bottom: 25px; }
-        .field label { display: block; color: var(--gold); font-size: 0.7rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
-        .field input, .field textarea, .field select { 
-            width: 100%; background: transparent; border: none; border-bottom: 1px solid #333; 
-            color: white; padding: 10px 0; font-size: 1rem; outline: none; transition: 0.3s;
-        }
-        .field input:focus { border-color: var(--gold); }
-
-        /* --- 9. FOOTER --- */
-        footer { padding: 80px 8% 40px; border-top: 1px solid #111; text-align: left; }
-        .f-top { display: flex; justify-content: space-between; margin-bottom: 60px; }
-        .f-col h4 { color: var(--gold); margin-bottom: 20px; font-family: 'Montserrat'; }
-        .f-col ul { list-style: none; }
-        .f-col li { margin-bottom: 10px; color: var(--soft-gray); font-size: 0.9rem; }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 1024px) {
-            .desktop-nav, .btn-gold { display: none; }
-            .menu-trigger { display: block; }
-            .hero { flex-direction: column; text-align: center; padding-top: 120px; }
-            .hero h1 { font-size: 2.8rem; }
-            .about-wrap, .contact-container { flex-direction: column; }
-            .yt-grid, .portfolio-grid { grid-template-columns: 1fr; }
+        p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. HEADER -->
-    <header>
-        <div class="logo">TUBASTE<span> YUSUPHU</span></div>
-        <ul class="desktop-nav">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <a href="#contact" class="btn-gold">Start a Project</a>
-        <div class="menu-trigger" onclick="toggleMenu()">☰</div>
-    </header>
-
-    <!-- MOBILE MENU OVERLAY -->
-    <div class="mobile-overlay" id="mobileMenu">
-        <div class="close-menu" onclick="toggleMenu()">✕</div>
-        <a href="#home" onclick="toggleMenu()">Home</a>
-        <a href="#about" onclick="toggleMenu()">About</a>
-        <a href="#youtube" onclick="toggleMenu()">YouTube</a>
-        <a href="#services" onclick="toggleMenu()">Services</a>
-        <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
-        <a href="#contact" onclick="toggleMenu()">Contact</a>
-        <a href="#contact" class="btn-gold" style="text-align: center; margin-top: 20px;">Start Project</a>
+    <div class="container">
+        <h1>Hello World! 🚀</h1>
+        <p>I coded this website directly inside GitHub!</p>
     </div>
 
-    <!-- 2. HERO SECTION -->
-    <section id="home" class="hero">
-        <div class="hero-left">
-            <span class="studio-label">CREATIVE STUDIO</span>
-            <h1>Creative Design.<br>Digital Stories.<br>Powerful Brands.</h1>
-            <p>I create engaging content on YouTube and deliver premium graphic design solutions for businesses, creators, and organizations.</p>
-            <div class="btn-container">
-                <a href="#" class="btn-gold" style="padding: 15px 35px;">Watch My Videos</a>
-                <a href="#contact" class="btn-secondary">Hire Me</a>
-            </div>
-        </div>
-        <div class="hero-right">
-            <div class="mockup-box">
-                [Creative Setup / Laptop Image]
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. ABOUT SECTION -->
-    <section id="about" class="section">
-        <div class="about-wrap">
-            <div class="about-image"></div>
-            <div class="about-text">
-                <h2>About Tubaste Yusuphu</h2>
-                <div class="about-item">
-                    <h3>My Story</h3>
-                    <p>I am a digital creative professional who bridges the gap between artistic vision and technological execution.</p>
-                </div>
-                <div class="about-item">
-                    <h3>My Mission</h3>
-                    <p>To empower businesses and creators with visual identities that stand the test of time.</p>
-                </div>
-                <div class="about-item">
-                    <h3>My Skills</h3>
-                    <p>Brand Strategy, High-End Visuals, YouTube Optimization, Digital Marketing Design.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. SERVICES SECTION -->
-    <section id="services" class="section" style="background: #080808;">
-        <div class="services-header">
-            <span class="studio-label">WHAT I DO</span>
-            <h2 style="font-size: 2.5rem; font-family: 'Montserrat';">My Services</h2>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <h4>Graphic Design</h4>
-                <p>Posters, Flyers, and high-conversion marketing materials.</p>
-                <a href="#" class="learn-more">Learn More →</a>
-            </div>
-            <div class="service-card">
-                <h4>Brand Identity</h4>
-                <p>Logos and complete visual systems representing your brand's core.</p>
-                <a href="#" class="learn-more">Learn More →</a>
-            </div>
-            <div class="service-card">
-                <h4>Digital Content</h4>
-                <p>YouTube thumbnails and viral content branding for high retention.</p>
-                <a href="#" class="learn-more">Learn More →</a>
-            </div>
-            <div class="service-card">
-                <h4>Marketing Design</h4>
-                <p>Professional business profiles and high-impact presentations.</p>
-                <a href="#" class="learn-more">Learn More →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. YOUTUBE SECTION -->
-    <section id="youtube" class="section">
-        <div class="services-header">
-            <h2 style="font-size: 2.5rem; font-family: 'Montserrat';">Latest From My Channel</h2>
-        </div>
-        <div class="yt-grid">
-            <div class="vid-card"><div class="vid-thumb"></div><div class="vid-info"><h5>Mastering Logo Design</h5><a href="#" class="learn-more">Watch Now →</a></div></div>
-            <div class="vid-card"><div class="vid-thumb"></div><div class="vid-info"><h5>Futuristic Tech Trends</h5><a href="#" class="learn-more">Watch Now →</a></div></div>
-            <div class="vid-card"><div class="vid-thumb"></div><div class="vid-info"><h5>Building Brand Loyalty</h5><a href="#" class="learn-more">Watch Now →</a></div></div>
-        </div>
-        <div style="text-align: center;">
-            <a href="#" class="btn-gold">Subscribe to @TubasteYusuphu</a>
-        </div>
-    </section>
-
-    <!-- 6. PORTFOLIO SECTION -->
-    <section id="portfolio" class="section" style="background: #080808;">
-        <div class="services-header">
-            <h2 style="font-size: 2.5rem; font-family: 'Montserrat';">My Portfolio</h2>
-        </div>
-        <div class="portfolio-grid">
-            <div class="port-box"><div class="port-hover"><span>Branding</span><a href="#" class="learn-more">View Project</a></div></div>
-            <div class="port-box"><div class="port-hover"><span>Flyers</span><a href="#" class="learn-more">View Project</a></div></div>
-            <div class="port-box"><div class="port-hover"><span>Posters</span><a href="#" class="learn-more">View Project</a></div></div>
-            <div class="port-box"><div class="port-hover"><span>Social Media</span><a href="#" class="learn-more">View Project</a></div></div>
-            <div class="port-box"><div class="port-hover"><span>YouTube Design</span><a href="#" class="learn-more">View Project</a></div></div>
-            <div class="port-box"><div class="port-hover"><span>Marketing</span><a href="#" class="learn-more">View Project</a></div></div>
-        </div>
-    </section>
-
-    <!-- 8. CONTACT SECTION -->
-    <section id="contact" class="section">
-        <div class="contact-container">
-            <div class="contact-info">
-                <span class="studio-label">CONTACT ME</span>
-                <h2 style="font-size: 3rem; font-family: 'Montserrat'; margin-bottom: 20px;">Let's Create.</h2>
-                <p style="color: var(--soft-gray); margin-bottom: 40px;">Ready to start your journey? Get in touch for customized branding strategies and design solutions.</p>
-                <p style="color: var(--gold);">EMAIL: hello@tubasteyusuphu.com</p>
-                <p>INSTAGRAM: @TubasteYusuphu</p>
-            </div>
-            <div class="contact-form">
-                <form>
-                    <div class="field"><label>Full Name</label><input type="text"></div>
-                    <div class="field"><label>Email Address</label><input type="email"></div>
-                    <div class="field"><label>Project Type</label><select><option>Design</option><option>Branding</option><option>YouTube</option></select></div>
-                    <div class="field"><label>Message</label><textarea rows="5"></textarea></div>
-                    <button class="btn-gold" style="width: 100%; border: none; padding: 20px;">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. FOOTER -->
-    <footer>
-        <div class="f-top">
-            <div class="f-col">
-                <div class="logo">TUBASTE<span> YUSUPHU</span></div>
-                <p style="margin-top: 10px; color: var(--soft-gray);">Creative Studio</p>
-            </div>
-            <div class="f-col">
-                <h4>Connect</h4>
-                <ul><li>YouTube</li><li>Instagram</li><li>LinkedIn</li></ul>
-            </div>
-            <div class="f-col">
-                <h4>Legal</h4>
-                <ul><li>Privacy Policy</li><li>Terms</li></ul>
-            </div>
-        </div>
-        <p style="color: #333; font-size: 0.8rem; text-align: center;">© 2026 Tubaste Yusuphu. All Rights Reserved.</p>
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            document.getElementById('mobileMenu').classList.toggle('active');
-        }
-    </script>
 </body>
 </html>
-
