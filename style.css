@@ -660,4 +660,61 @@ footer {
     font-size:14px;
     color:#777;
 
+}/* Social Section */
+
+
+.social-section {
+
+    text-align:center;
+    padding:60px 10%;
+    background:#111;
+
+}
+
+
+.social-section h2 {
+
+    font-size:35px;
+    margin-bottom:15px;
+
+}
+
+
+.social-section p {
+
+    color:#ccc;
+    margin-bottom:25px;
+
+}
+
+
+
+.social-icons {
+
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+
+}
+
+
+
+.social-icons a {
+
+    background:#000;
+    color:white;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:30px;
+    transition:.3s;
+
+}
+
+
+
+.social-icons a:hover {
+
+    background:#ff0000;
+
 }
