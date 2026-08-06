@@ -312,4 +312,70 @@ nav {
 }
 
 
+}.header-btn {
+
+    background:#ff0000;
+    color:white;
+    padding:12px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+
+}
+
+
+
+.value-section {
+
+    background:#000;
+    padding:80px 10%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+
+}
+
+
+
+.value-text h2 {
+
+    color:#ff0000;
+
+}
+
+
+
+.community-graphic {
+
+    background:#111;
+    padding:60px;
+    border-radius:20px;
+    text-align:center;
+    color:white;
+    font-size:30px;
+    line-height:1.5;
+
+}
+
+
+
+.video-card a {
+
+    color:#ff0000;
+    text-decoration:none;
+    font-weight:bold;
+
+}
+
+
+
+@media(max-width:800px){
+
+.value-section {
+
+    grid-template-columns:1fr;
+
+}
+
 }
