@@ -495,4 +495,33 @@ transition:.3s;
 
 background:#ff0000;
 
+}.contact-info {
+
+    text-align:center;
+    margin-top:30px;
+    font-size:18px;
+
+}
+
+
+.contact-info p {
+
+    margin:15px 0;
+    color:#ddd;
+
+}
+
+
+.contact-info a {
+
+    color:#ff0000;
+    text-decoration:none;
+
+}
+
+
+.contact-info a:hover {
+
+    color:white;
+
 }
