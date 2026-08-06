@@ -6,13 +6,12 @@ function loadComponent(id, file) {
 
         const element = document.getElementById(id);
 
-        if(element){
-
+        if (element) {
             element.innerHTML = data;
-
         }
 
-    });
+    })
+    .catch(error => console.log("Component error:", error));
 
 }
 
@@ -22,24 +21,24 @@ loadComponent("navbar", "components/navbar.html");
 
 loadComponent("hamburger", "components/hamburger.html");
 
-loadComponent("footer", "components/footer.html");
-
 loadComponent("social", "components/social.html");
 
+loadComponent("footer", "components/footer.html");
 
 
 
 
-document.addEventListener("click", function(event){
+
+document.addEventListener("click", function(event) {
 
 
-    if(event.target.closest("#hamburger")){
+    if (event.target.closest("#hamburger")) {
 
 
         const nav = document.querySelector("nav");
 
 
-        if(nav){
+        if (nav) {
 
             nav.classList.toggle("active");
 
