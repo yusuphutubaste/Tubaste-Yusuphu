@@ -1,51 +1,35 @@
 function loadComponent(id, file) {
 
     fetch(file)
-    .then(response => response.text())
-    .then(data => {
+    .then(response => {
 
-        const element = document.getElementById(id);
-
-        if (element) {
-            element.innerHTML = data;
+        if (!response.ok) {
+            throw new Error("Cannot load " + file);
         }
 
+        return response.text();
+
     })
-    .catch(error => console.log("Component error:", error));
+    .then(data => {
+
+        document.getElementById(id).innerHTML = data;
+
+    })
+
+    .catch(error => {
+
+        console.log(error);
+
+    });
 
 }
 
 
 
-loadComponent("navbar", "components/navbar.html");
+loadComponent("footer", "./components/footer.html");
 
-loadComponent("hamburger", "components/hamburger.html");
+loadComponent("navbar", "./components/navbar.html");
 
-loadComponent("social", "components/social.html");
+loadComponent("hamburger", "./components/hamburger.html");
 
-loadComponent("footer", "components/footer.html");
-
-
-
-
-
-document.addEventListener("click", function(event) {
-
-
-    if (event.target.closest("#hamburger")) {
-
-
-        const nav = document.querySelector("nav");
-
-
-        if (nav) {
-
-            nav.classList.toggle("active");
-
-        }
-
-
-    }
-
-
-});
+loadComponent("social", "./assets/social.html");
