@@ -1,38 +1,653 @@
-/* =========================
-   NAVIGATION LINK MOVEMENT
-========================= */
+/* =====================================================
+   TUBASTE WEBSITE
+   GLOBAL DESIGN SYSTEM
+===================================================== */
 
 
-.navbar ul li a {
+/* =====================================================
+   ROOT VARIABLES
+===================================================== */
 
-    display: inline-block;
+:root {
 
-    color: #fff;
+    /* Colors */
 
-    position: relative;
+    --background: #000000;
+    --surface: #111111;
+    --card: #181818;
 
-    padding: 5px 0;
+    --white: #ffffff;
+    --gray: #a0a0a0;
+    --dark-gray: #666666;
 
-    transition: 
-        transform 0.3s ease,
-        color 0.3s ease;
+    /* Brand Accent */
+    --accent: #ff0033;
+
+
+    /* Layout */
+
+    --container-width: 1200px;
+
+    --section-space: 100px;
+
+
+    /* Design */
+
+    --radius: 16px;
+
+    --transition: 0.3s ease;
+
+
+    /* Shadows */
+
+    --shadow:
+        0 10px 30px rgba(0,0,0,0.4);
 
 }
 
 
 
-.navbar ul li a:hover {
+/* =====================================================
+   RESET
+===================================================== */
 
-    transform: translateY(-5px);
 
-    color: #ccc;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    background: var(--background);
+
+    color: var(--white);
+
+    font-family: "Inter", sans-serif;
+
+    line-height: 1.6;
+
+}
+
+
+img {
+
+    max-width: 100%;
+
+    display: block;
+
+}
+
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+
+button {
+
+    border: none;
+
+    background: none;
+
+    cursor: pointer;
 
 }
 
 
 
-.navbar ul li a:active {
+/* =====================================================
+   GLOBAL TYPOGRAPHY
+===================================================== */
 
-    transform: translateY(2px) scale(0.95);
+
+h1,
+h2,
+h3 {
+
+    font-family: "Space Grotesk", sans-serif;
+
+    line-height: 1.1;
+
+}
+
+
+h1 {
+
+    font-size: clamp(3rem, 8vw, 6rem);
+
+    font-weight: 800;
+
+}
+
+
+h2 {
+
+    font-size: clamp(2rem,5vw,3.5rem);
+
+}
+
+
+p {
+
+    color: var(--gray);
+
+    font-size: 1.1rem;
+
+}
+
+
+
+/* =====================================================
+   CONTAINER & SECTIONS
+===================================================== */
+
+
+.container {
+
+    width: min(90%, var(--container-width));
+
+    margin-inline: auto;
+
+}
+
+
+.section {
+
+    padding: var(--section-space) 0;
+
+}
+
+
+
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 14px 30px;
+
+    border-radius: 50px;
+
+    font-weight: 600;
+
+    transition: var(--transition);
+
+}
+
+
+
+.btn-primary {
+
+    background: var(--accent);
+
+    color: var(--white);
+
+}
+
+
+
+.btn-primary:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+    0 10px 30px rgba(255,0,51,.35);
+
+}
+
+
+
+.btn-secondary {
+
+    border: 1px solid #333;
+
+}
+
+
+
+.btn-secondary:hover {
+
+    background: var(--white);
+
+    color: black;
+
+}
+
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+
+.navbar {
+
+    position: fixed;
+
+    top:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    background:
+
+    rgba(0,0,0,.7);
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+
+.navbar-container {
+
+
+    width:min(90%,var(--container-width));
+
+    margin:auto;
+
+
+    height:80px;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+
+}
+
+
+
+.logo {
+
+
+    font-size:1.8rem;
+
+    font-weight:800;
+
+
+}
+
+
+
+.nav-menu ul {
+
+
+    display:flex;
+
+    gap:35px;
+
+    list-style:none;
+
+
+}
+
+
+
+.nav-menu a {
+
+
+    position:relative;
+
+    padding:8px 0;
+
+    transition:var(--transition);
+
+
+}
+
+
+
+.nav-menu a::after {
+
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--accent);
+
+    transition:var(--transition);
+
+
+}
+
+
+
+.nav-menu a:hover::after {
+
+
+    width:100%;
+
+
+}
+
+
+
+.nav-menu a:hover {
+
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+/* Subscribe */
+
+
+.nav-button {
+
+
+    background:var(--accent);
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+
+}
+
+
+
+/* =====================================================
+   HAMBURGER
+===================================================== */
+
+
+.hamburger {
+
+
+    display:none;
+
+    flex-direction:column;
+
+    gap:6px;
+
+
+}
+
+
+.hamburger span {
+
+
+    width:28px;
+
+    height:3px;
+
+    background:white;
+
+    transition:var(--transition);
+
+
+}
+
+
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+
+.hero {
+
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+
+}
+
+
+.hero span {
+
+
+    color:var(--accent);
+
+
+}
+
+
+.hero p {
+
+
+    max-width:700px;
+
+    margin:30px auto;
+
+
+}
+
+
+
+/* =====================================================
+   TUBASTE VALUES
+===================================================== */
+
+
+.values-grid {
+
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+
+}
+
+
+
+.card {
+
+
+    background:var(--card);
+
+    padding:35px;
+
+    border-radius:var(--radius);
+
+    transition:var(--transition);
+
+
+}
+
+
+
+.card:hover {
+
+
+    transform:translateY(-8px);
+
+
+}
+
+
+
+/* =====================================================
+   VIDEO / PROJECT CARDS
+===================================================== */
+
+
+.grid {
+
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+
+}
+
+
+
+/* =====================================================
+   COMMUNITY SECTION
+===================================================== */
+
+
+.community {
+
+
+    text-align:center;
+
+
+}
+
+
+
+/* =====================================================
+   SOCIAL CARDS
+===================================================== */
+
+
+.social-grid {
+
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+
+}
+
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+
+.footer {
+
+
+    background:var(--surface);
+
+    padding:50px 0;
+
+    text-align:center;
+
+
+}
+
+
+
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+
+
+@media(max-width:900px){
+
+
+    .nav-menu,
+    .nav-button {
+
+        display:none;
+
+    }
+
+
+    .hamburger {
+
+        display:flex;
+
+    }
+
+
+    .values-grid {
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+    .grid {
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+    :root {
+
+        --section-space:70px;
+
+    }
+
+
+    .values-grid,
+    .grid,
+    .social-grid {
+
+
+        grid-template-columns:1fr;
+
+
+    }
+
+
+    h1 {
+
+        font-size:3rem;
+
+    }
+
 
 }
