@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
             navbar.innerHTML = data;
 
 
-            initializeMenu();
+            loadHamburger();
 
 
         }
@@ -66,9 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-
 });
 
 
@@ -80,11 +77,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* =====================================================
-   MOBILE HAMBURGER MENU
+   HAMBURGER MENU
 ===================================================== */
 
 
-function initializeMenu(){
+function loadHamburger(){
 
 
 
@@ -98,14 +95,12 @@ function initializeMenu(){
 
 
 
-
-    if (!hamburger || !menu) {
-
+    if(!hamburger || !menu){
 
         return;
 
-
     }
+
 
 
 
@@ -144,7 +139,7 @@ function initializeMenu(){
 
 
 
-    /* CLOSE MENU AFTER CLICK */
+    /* CLOSE MENU WHEN CLICKING LINK */
 
 
     const links =
