@@ -1,114 +1,150 @@
 /* =====================================================
-   TUBASTE WEBSITE
-   GLOBAL DESIGN SYSTEM
+TUBASTE WEBSITE
+GLOBAL DESIGN SYSTEM
 ===================================================== */
 
 
 /* =====================================================
-   ROOT VARIABLES
+ROOT VARIABLES
 ===================================================== */
+
 
 :root {
 
+
     /* Colors */
 
-    --background: #000000;
-    --surface: #111111;
-    --card: #181818;
+    --background:#000000;
 
-    --white: #ffffff;
-    --gray: #a0a0a0;
-    --dark-gray: #666666;
+    --surface:#111111;
 
-    /* Brand Accent */
-    --accent: #ff0033;
+    --card:#181818;
+
+
+    --white:#ffffff;
+
+    --gray:#a0a0a0;
+
+    --dark-gray:#666666;
+
+
+
+    /* Brand */
+
+    --accent:#ff0033;
+
 
 
     /* Layout */
 
-    --container-width: 1200px;
+    --container-width:1200px;
 
-    --section-space: 100px;
+    --section-space:100px;
+
 
 
     /* Design */
 
-    --radius: 16px;
+    --radius:16px;
 
-    --transition: 0.3s ease;
+    --transition:.3s ease;
 
 
-    /* Shadows */
+
+    /* Shadow */
 
     --shadow:
-        0 10px 30px rgba(0,0,0,0.4);
+    0 10px 30px rgba(0,0,0,.4);
 
 }
 
 
 
+
+
+
 /* =====================================================
-   RESET
+RESET
 ===================================================== */
 
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
 }
+
 
 
 html {
-    scroll-behavior: smooth;
+
+
+    scroll-behavior:smooth;
+
 }
+
 
 
 body {
 
-    background: var(--background);
 
-    color: var(--white);
+    background:var(--background);
 
-    font-family: "Inter", sans-serif;
+    color:var(--white);
 
-    line-height: 1.6;
+    font-family:"Inter",sans-serif;
+
+    line-height:1.6;
 
 }
+
 
 
 img {
 
-    max-width: 100%;
 
-    display: block;
+    max-width:100%;
+
+    display:block;
 
 }
+
 
 
 a {
 
-    color: inherit;
 
-    text-decoration: none;
+    color:inherit;
+
+    text-decoration:none;
 
 }
+
 
 
 button {
 
-    border: none;
 
-    background: none;
+    border:none;
 
-    cursor: pointer;
+    background:none;
+
+    cursor:pointer;
 
 }
 
 
 
+
+
+
 /* =====================================================
-   GLOBAL TYPOGRAPHY
+TYPOGRAPHY
 ===================================================== */
 
 
@@ -116,101 +152,137 @@ h1,
 h2,
 h3 {
 
-    font-family: "Space Grotesk", sans-serif;
 
-    line-height: 1.1;
+    font-family:"Space Grotesk",sans-serif;
+
+    line-height:1.1;
 
 }
+
 
 
 h1 {
 
-    font-size: clamp(3rem, 8vw, 6rem);
 
-    font-weight: 800;
+    font-size:clamp(3rem,8vw,6rem);
+
+    font-weight:800;
 
 }
+
 
 
 h2 {
 
-    font-size: clamp(2rem,5vw,3.5rem);
+
+    font-size:clamp(2rem,5vw,3.5rem);
+
+    margin-bottom:30px;
 
 }
+
+
+
+h3 {
+
+
+    font-size:1.5rem;
+
+    margin-bottom:15px;
+
+}
+
 
 
 p {
 
-    color: var(--gray);
 
-    font-size: 1.1rem;
+    color:var(--gray);
+
+    font-size:1.1rem;
 
 }
 
 
 
+
+
+
 /* =====================================================
-   CONTAINER & SECTIONS
+CONTAINER
 ===================================================== */
 
 
 .container {
 
-    width: min(90%, var(--container-width));
 
-    margin-inline: auto;
+    width:min(90%,var(--container-width));
+
+    margin:auto;
 
 }
+
 
 
 .section {
 
-    padding: var(--section-space) 0;
+
+    padding:var(--section-space) 0;
 
 }
+
 
 
 
 
 
 /* =====================================================
-   BUTTONS
+BUTTONS
 ===================================================== */
 
 
 .btn {
 
-    display: inline-flex;
 
-    align-items: center;
+    display:inline-flex;
 
-    justify-content: center;
+    align-items:center;
 
-    padding: 14px 30px;
+    justify-content:center;
 
-    border-radius: 50px;
 
-    font-weight: 600;
+    padding:14px 30px;
 
-    transition: var(--transition);
+
+    border-radius:50px;
+
+
+    font-weight:600;
+
+
+    transition:var(--transition);
 
 }
+
 
 
 
 .btn-primary {
 
-    background: var(--accent);
 
-    color: var(--white);
+    background:var(--accent);
+
+    color:white;
 
 }
 
 
 
+
 .btn-primary:hover {
 
-    transform: translateY(-3px);
+
+    transform:translateY(-3px);
 
     box-shadow:
     0 10px 30px rgba(255,0,51,.35);
@@ -219,32 +291,40 @@ p {
 
 
 
+
 .btn-secondary {
 
-    border: 1px solid #333;
+
+    border:1px solid #333;
 
 }
+
 
 
 
 .btn-secondary:hover {
 
-    background: var(--white);
 
-    color: black;
+    background:white;
+
+    color:black;
 
 }
 
 
 
+
+
+
 /* =====================================================
-   NAVBAR
+NAVBAR
 ===================================================== */
 
 
 .navbar {
 
-    position: fixed;
+
+    position:fixed;
 
     top:0;
 
@@ -252,13 +332,16 @@ p {
 
     z-index:1000;
 
+
     background:
+    rgba(0,0,0,.75);
 
-    rgba(0,0,0,.7);
 
-    backdrop-filter: blur(10px);
+    backdrop-filter:blur(12px);
 
 }
+
+
 
 
 
@@ -267,32 +350,42 @@ p {
 
     width:min(90%,var(--container-width));
 
+
     margin:auto;
 
 
-    height:80px;
+    height:85px;
 
 
     display:flex;
 
+
     align-items:center;
 
-    justify-content:space-between;
 
+    justify-content:space-between;
 
 }
 
 
 
-.logo {
 
 
-    font-size:1.8rem;
+.brand {
+
+
+    font-size:1.4rem;
+
 
     font-weight:800;
 
 
+    white-space:nowrap;
+
 }
+
+
+
 
 
 
@@ -301,12 +394,18 @@ p {
 
     display:flex;
 
-    gap:35px;
+
+    align-items:center;
+
+
+    gap:30px;
+
 
     list-style:none;
 
-
 }
+
+
 
 
 
@@ -315,12 +414,15 @@ p {
 
     position:relative;
 
+
     padding:8px 0;
+
 
     transition:var(--transition);
 
-
 }
+
+
 
 
 
@@ -329,22 +431,30 @@ p {
 
     content:"";
 
+
     position:absolute;
+
 
     bottom:0;
 
+
     left:0;
+
 
     width:0;
 
+
     height:2px;
+
 
     background:var(--accent);
 
+
     transition:var(--transition);
 
-
 }
+
+
 
 
 
@@ -353,42 +463,69 @@ p {
 
     width:100%;
 
-
 }
+
+
 
 
 
 .nav-menu a:hover {
 
 
-    transform:translateY(-2px);
-
+    transform:translateY(-3px);
 
 }
 
 
 
-/* Subscribe */
 
 
-.nav-button {
+
+.subscribe-btn {
 
 
     background:var(--accent);
 
-    padding:12px 24px;
+
+    color:white;
+
+
+    padding:12px 25px;
+
 
     border-radius:50px;
 
+
     font-weight:600;
 
+
+    transition:var(--transition);
 
 }
 
 
 
+
+
+.subscribe-btn:hover {
+
+
+    transform:translateY(-3px);
+
+
+    box-shadow:
+    0 10px 25px rgba(255,0,51,.35);
+
+}
+
+
+
+
+
+
+
 /* =====================================================
-   HAMBURGER
+HAMBURGER
 ===================================================== */
 
 
@@ -397,12 +534,15 @@ p {
 
     display:none;
 
+
     flex-direction:column;
+
 
     gap:6px;
 
-
 }
+
+
 
 
 .hamburger span {
@@ -410,19 +550,27 @@ p {
 
     width:28px;
 
+
     height:3px;
+
 
     background:white;
 
-    transition:var(--transition);
 
+    border-radius:5px;
+
+
+    transition:var(--transition);
 
 }
 
 
 
+
+
+
 /* =====================================================
-   HERO SECTION
+HERO
 ===================================================== */
 
 
@@ -431,11 +579,15 @@ p {
 
     min-height:100vh;
 
+
     display:flex;
+
 
     align-items:center;
 
+
     justify-content:center;
+
 
     text-align:center;
 
@@ -443,29 +595,24 @@ p {
 }
 
 
-.hero span {
-
-
-    color:var(--accent);
-
-
-}
-
 
 .hero p {
 
 
     max-width:700px;
 
-    margin:30px auto;
 
+    margin:30px auto;
 
 }
 
 
 
+
+
+
 /* =====================================================
-   TUBASTE VALUES
+VALUES / CARDS
 ===================================================== */
 
 
@@ -474,12 +621,15 @@ p {
 
     display:grid;
 
+
     grid-template-columns:repeat(4,1fr);
+
 
     gap:25px;
 
-
 }
+
+
 
 
 
@@ -488,14 +638,19 @@ p {
 
     background:var(--card);
 
+
     padding:35px;
 
+
     border-radius:var(--radius);
+
 
     transition:var(--transition);
 
 
 }
+
+
 
 
 
@@ -505,12 +660,18 @@ p {
     transform:translateY(-8px);
 
 
+    box-shadow:var(--shadow);
+
 }
 
 
 
+
+
+
+
 /* =====================================================
-   VIDEO / PROJECT CARDS
+GENERAL GRID
 ===================================================== */
 
 
@@ -519,32 +680,44 @@ p {
 
     display:grid;
 
+
     grid-template-columns:repeat(3,1fr);
+
 
     gap:30px;
 
-
 }
 
 
 
+
+
+
 /* =====================================================
-   COMMUNITY SECTION
+VIDEO
 ===================================================== */
 
 
-.community {
+.video-card iframe {
 
 
-    text-align:center;
+    width:100%;
 
+
+    border-radius:var(--radius);
+
+
+    border:none;
 
 }
 
 
 
+
+
+
 /* =====================================================
-   SOCIAL CARDS
+SOCIAL
 ===================================================== */
 
 
@@ -553,17 +726,108 @@ p {
 
     display:grid;
 
+
     grid-template-columns:repeat(4,1fr);
 
-    gap:20px;
 
+    gap:20px;
 
 }
 
 
 
+
+
+
 /* =====================================================
-   FOOTER
+COMMUNITY
+===================================================== */
+
+
+.community {
+
+
+    padding:100px 0;
+
+
+    text-align:center;
+
+}
+
+
+
+
+
+
+/* =====================================================
+CONTACT FORM
+===================================================== */
+
+
+.contact-form {
+
+
+    max-width:700px;
+
+
+    margin:auto;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    gap:20px;
+
+}
+
+
+
+
+
+.contact-form input,
+.contact-form textarea {
+
+
+    background:var(--card);
+
+
+    border:1px solid #333;
+
+
+    padding:18px;
+
+
+    border-radius:12px;
+
+
+    color:white;
+
+
+    font-size:1rem;
+
+}
+
+
+
+
+
+.contact-form textarea {
+
+
+    resize:none;
+
+}
+
+
+
+
+
+
+/* =====================================================
+FOOTER
 ===================================================== */
 
 
@@ -572,82 +836,236 @@ p {
 
     background:var(--surface);
 
-    padding:50px 0;
 
-    text-align:center;
-
+    padding:70px 0;
 
 }
 
 
 
+
+
+.footer-container {
+
+
+    display:grid;
+
+
+    grid-template-columns:2fr 1fr 1fr 1fr;
+
+
+    gap:40px;
+
+}
+
+
+
+
+
+.footer-links,
+.social-links {
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    gap:12px;
+
+}
+
+
+
+
+
+.footer a {
+
+
+    color:var(--gray);
+
+
+    transition:var(--transition);
+
+}
+
+
+
+
+
+.footer a:hover {
+
+
+    color:white;
+
+}
+
+
+
+
+
+.copyright {
+
+
+    grid-column:1/-1;
+
+
+    border-top:1px solid #222;
+
+
+    padding-top:30px;
+
+
+    margin-top:40px;
+
+
+    color:var(--dark-gray);
+
+}
+
+
+
+
+
+
 /* =====================================================
-   RESPONSIVE DESIGN
+RESPONSIVE
 ===================================================== */
 
 
 @media(max-width:900px){
 
 
-    .nav-menu,
-    .nav-button {
 
-        display:none;
-
-    }
+.nav-menu {
 
 
-    .hamburger {
+    display:none;
 
-        display:flex;
-
-    }
+}
 
 
-    .values-grid {
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
 
 
-    .grid {
+.subscribe-btn {
 
-        grid-template-columns:repeat(2,1fr);
 
-    }
+    display:none;
+
+}
+
+
+
+
+
+.hamburger {
+
+
+    display:flex;
+
+}
+
+
+
+
+
+.values-grid {
+
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+
+
+
+
+.grid {
+
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+
+
+
+
+.social-grid {
+
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+
+
+
+
+.footer-container {
+
+
+    grid-template-columns:1fr;
+
+
+    text-align:center;
+
+}
 
 
 }
 
 
 
+
+
 @media(max-width:600px){
 
 
-    :root {
 
-        --section-space:70px;
-
-    }
+:root {
 
 
-    .values-grid,
-    .grid,
-    .social-grid {
+    --section-space:70px;
+
+}
 
 
-        grid-template-columns:1fr;
 
 
-    }
+
+.values-grid,
+.grid,
+.social-grid {
 
 
-    h1 {
+    grid-template-columns:1fr;
 
-        font-size:3rem;
+}
 
-    }
+
+
+
+
+.brand {
+
+
+    font-size:1.1rem;
+
+}
+
+
+
+
+
+h1 {
+
+
+    font-size:3rem;
+
+}
+
 
 
 }
