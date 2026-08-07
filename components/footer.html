@@ -1,81 +1,76 @@
-<footer class="footer">
+/* =====================================================
+FOOTER SECTION
+===================================================== */
 
 
-<div class="container footer-container">
+.footer {
 
+    background:#080808;
 
+    padding:70px 0 30px;
 
-    <!-- Footer Brand -->
+    border-top:1px solid rgba(255,255,255,0.08);
 
+}
 
-    <div class="footer-brand">
 
 
-        <h2>
-            Connect With Tubaste
-        </h2>
 
 
-        <p>
-            Follow, subscribe, and stay connected with
-            BUILD. GROW. LEAD.
-        </p>
 
 
-    </div>
+.footer-container {
 
+    display:flex;
 
+    flex-direction:column;
 
+    align-items:center;
 
+    text-align:center;
 
+    gap:35px;
 
+}
 
 
-    <!-- Social Links -->
 
 
-    <div class="social-links">
 
 
-        <a 
-        href="https://www.youtube.com/@TubasteYusuphu"
-        target="_blank"
-        rel="noopener noreferrer">
 
-            YouTube
 
-        </a>
+/* Footer Brand */
 
 
+.footer-brand h2 {
 
 
-        <a href="#">
+    font-size:2rem;
 
-            Instagram
 
-        </a>
+    margin-bottom:15px;
 
 
+    color:var(--white);
 
 
-        <a href="#">
+}
 
-            Facebook
 
-        </a>
 
 
 
+.footer-brand p {
 
-        <a href="#">
 
-            TikTok
+    max-width:500px;
 
-        </a>
 
+    margin:auto;
 
-    </div>
 
+}
 
 
 
@@ -83,71 +78,56 @@
 
 
 
-    <!-- Footer Navigation -->
 
+/* Social Links */
 
-    <nav class="footer-links">
 
+.social-links {
 
-        <a href="index.html">
-            Home
-        </a>
 
+    display:flex;
 
-        <a href="about.html">
-            About
-        </a>
 
+    justify-content:center;
 
-        <a href="videos.html">
-            Videos
-        </a>
 
+    gap:25px;
 
-        <a href="community.html">
-            Community
-        </a>
 
+    flex-wrap:wrap;
 
-        <a href="work.html">
-            Work
-        </a>
 
+}
 
-        <a href="contact.html">
-            Contact
-        </a>
 
 
-    </nav>
 
 
+.social-links a {
 
 
+    color:var(--gray);
 
 
+    transition:var(--transition);
 
 
-    <!-- Subscribe -->
+}
 
 
-    <div>
 
 
-        <a 
-        href="https://www.youtube.com/@TubasteYusuphu"
-        target="_blank"
-        class="subscribe-btn">
 
+.social-links a:hover {
 
-            Subscribe
 
+    color:var(--white);
 
-        </a>
 
+    transform:translateY(-3px);
 
-    </div>
 
+}
 
 
 
@@ -155,22 +135,198 @@
 
 
 
-    <!-- Copyright -->
 
+/* Footer Navigation */
 
-    <div class="copyright">
 
+.footer-links {
 
-        © 2026 Tubaste.
-        BUILD. GROW. LEAD. EVERYTHING IS CONNECTED.
 
+    display:flex;
 
-    </div>
 
+    justify-content:center;
 
 
+    gap:30px;
 
-</div>
 
+    flex-wrap:wrap;
 
-</footer>
+
+}
+
+
+
+
+
+.footer-links a {
+
+
+    color:var(--gray);
+
+
+    transition:var(--transition);
+
+
+}
+
+
+
+
+
+.footer-links a:hover {
+
+
+    color:var(--accent);
+
+
+}
+
+
+
+
+
+
+
+
+/* Subscribe Button */
+
+
+.subscribe-btn {
+
+
+    display:inline-flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    padding:12px 28px;
+
+
+    background:var(--accent);
+
+
+    color:white;
+
+
+    border-radius:50px;
+
+
+    font-weight:600;
+
+
+    transition:.3s ease;
+
+
+}
+
+
+
+
+
+
+
+
+.subscribe-btn:hover {
+
+
+    transform:translateY(-4px);
+
+
+    box-shadow:
+
+    0 10px 30px rgba(255,0,51,.35);
+
+
+}
+
+
+
+
+
+
+
+
+/* Copyright */
+
+
+.copyright {
+
+
+    width:100%;
+
+
+    padding-top:30px;
+
+
+    border-top:
+
+    1px solid rgba(255,255,255,0.08);
+
+
+
+    color:var(--dark-gray);
+
+
+    font-size:.9rem;
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================================================
+FOOTER MOBILE
+===================================================== */
+
+
+@media(max-width:600px){
+
+
+    .footer {
+
+
+        padding:50px 0 25px;
+
+
+    }
+
+
+
+
+
+    .footer-links {
+
+
+        flex-direction:column;
+
+
+        gap:15px;
+
+
+    }
+
+
+
+
+
+    .social-links {
+
+
+        gap:18px;
+
+
+    }
+
+
+}
