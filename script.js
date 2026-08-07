@@ -2,67 +2,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-/* =====================================================
-LOAD NAVBAR
-===================================================== */
+    /* =====================================================
+       LOAD NAVBAR
+    ===================================================== */
 
 
-fetch("components/navbar.html")
+    fetch("components/navbar.html")
 
-.then(response => response.text())
+    .then(response => response.text())
 
-.then(data => {
-
-
-    const navbar = document.getElementById("navbar");
+    .then(data => {
 
 
-    if(navbar){
+        const navbar = document.getElementById("navbar");
 
 
-        navbar.innerHTML = data;
+        if (navbar) {
 
 
-        initializeMenu();
+            navbar.innerHTML = data;
 
 
-    }
+            initializeMenu();
 
 
-});
+        }
 
 
-
-
-
-
-
-
-/* =====================================================
-LOAD FOOTER
-===================================================== */
-
-
-fetch("components/footer.html")
-
-.then(response => response.text())
-
-.then(data => {
-
-
-    const footer = document.getElementById("footer");
-
-
-    if(footer){
-
-
-        footer.innerHTML = data;
-
-
-    }
-
-
-});
+    });
 
 
 
@@ -71,37 +38,39 @@ fetch("components/footer.html")
 
 
 
-/* =====================================================
-LOAD SOCIAL COMPONENT
-===================================================== */
+    /* =====================================================
+       LOAD FOOTER
+    ===================================================== */
 
 
-fetch("components/social.html")
+    fetch("components/footer.html")
 
-.then(response => response.text())
+    .then(response => response.text())
 
-.then(data => {
-
-
-    const social = document.getElementById("social");
+    .then(data => {
 
 
-    if(social){
+        const footer = document.getElementById("footer");
 
 
-        social.innerHTML = data;
+        if (footer) {
 
 
-    }
+            footer.innerHTML = data;
+
+
+        }
+
+
+    });
+
+
+
+
 
 
 });
 
-
-
-
-
-});
 
 
 
@@ -111,7 +80,7 @@ fetch("components/social.html")
 
 
 /* =====================================================
-HAMBURGER MENU
+   MOBILE HAMBURGER MENU
 ===================================================== */
 
 
@@ -119,97 +88,97 @@ function initializeMenu(){
 
 
 
-const hamburger =
-document.getElementById("hamburger");
+    const hamburger =
+    document.getElementById("hamburger");
 
 
 
-const menu =
-document.querySelector(".nav-menu");
-
-
-
-
-
-if(!hamburger || !menu){
-
-    return;
-
-}
+    const menu =
+    document.querySelector(".nav-menu");
 
 
 
 
+    if (!hamburger || !menu) {
 
 
-hamburger.addEventListener("click", function(){
+        return;
 
 
-
-    menu.classList.toggle("active");
-
-
-
-    hamburger.classList.toggle("active");
-
-
-
-    const expanded =
-    hamburger.getAttribute("aria-expanded")
-    === "true";
-
-
-
-    hamburger.setAttribute(
-        "aria-expanded",
-        !expanded
-    );
-
-
-
-});
+    }
 
 
 
 
 
 
+    hamburger.addEventListener("click", function(){
 
 
 
-/* CLOSE MENU AFTER CLICK */
+        menu.classList.toggle("active");
 
 
-const links =
-menu.querySelectorAll("a");
-
-
-
-links.forEach(link => {
+        hamburger.classList.toggle("active");
 
 
 
-    link.addEventListener(
-    "click",
-    function(){
+        const expanded =
+        hamburger.getAttribute("aria-expanded") === "true";
 
-
-        menu.classList.remove("active");
-
-
-        hamburger.classList.remove("active");
 
 
         hamburger.setAttribute(
             "aria-expanded",
-            "false"
+            !expanded
         );
+
 
 
     });
 
 
-});
+
+
+
+
+
+
+    /* CLOSE MENU AFTER CLICK */
+
+
+    const links =
+    menu.querySelectorAll("a");
+
+
+
+    links.forEach(link => {
+
+
+
+        link.addEventListener("click", function(){
+
+
+
+            menu.classList.remove("active");
+
+
+            hamburger.classList.remove("active");
+
+
+
+            hamburger.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+
+
+        });
+
+
+
+    });
 
 
 
