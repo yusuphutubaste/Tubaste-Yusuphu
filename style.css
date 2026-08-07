@@ -1,204 +1,25 @@
 /* =====================================================
-RESPONSIVE DESIGN
+HERO SECTION
 ===================================================== */
 
 
-@media(max-width:900px){
+.hero {
 
+    min-height:100vh;
 
+    display:flex;
 
-    .navbar-container {
+    align-items:center;
 
-        height:75px;
+    justify-content:center;
 
-    }
+    text-align:center;
 
+    position:relative;
 
+    overflow:hidden;
 
-
-
-    /* Hide desktop navigation */
-
-    .nav-menu {
-
-        position:fixed;
-
-        top:75px;
-
-        left:0;
-
-        width:100%;
-
-        background:#000000;
-
-        padding:40px 0;
-
-        transform:translateY(-120%);
-
-        transition:0.4s ease;
-
-        opacity:0;
-
-        pointer-events:none;
-
-    }
-
-
-
-
-
-    /* Open menu */
-
-    .nav-menu.active {
-
-        transform:translateY(0);
-
-        opacity:1;
-
-        pointer-events:auto;
-
-    }
-
-
-
-
-
-    .nav-menu ul {
-
-        flex-direction:column;
-
-        align-items:center;
-
-        gap:25px;
-
-    }
-
-
-
-
-
-
-    .nav-menu a {
-
-        font-size:1.2rem;
-
-    }
-
-
-
-
-
-
-
-    /* Hide subscribe button on mobile */
-
-    .subscribe-btn {
-
-        display:none;
-
-    }
-
-
-
-
-
-
-
-    /* Hamburger */
-
-    .hamburger {
-
-        display:flex;
-
-        flex-direction:column;
-
-        gap:6px;
-
-        cursor:pointer;
-
-        z-index:2000;
-
-    }
-
-
-
-
-
-
-    .hamburger span {
-
-        width:28px;
-
-        height:3px;
-
-        background:white;
-
-        transition:.3s ease;
-
-    }
-
-
-
-
-
-
-
-    /* Hamburger animation */
-
-    .hamburger.active span:nth-child(1){
-
-        transform:rotate(45deg) translate(6px,6px);
-
-    }
-
-
-
-
-    .hamburger.active span:nth-child(2){
-
-        opacity:0;
-
-    }
-
-
-
-
-    .hamburger.active span:nth-child(3){
-
-        transform:rotate(-45deg) translate(6px,-6px);
-
-    }
-
-
-
-
-
-
-    .values-grid {
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-
-
-
-    .grid {
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-
-
-
-    .social-grid {
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-
+    padding-top:80px;
 
 }
 
@@ -206,46 +27,120 @@ RESPONSIVE DESIGN
 
 
 
-@media(max-width:600px){
+/* Background glow effect */
+
+.hero::before {
+
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+
+    height:600px;
+
+
+    background:
+
+    radial-gradient(
+        circle,
+        rgba(255,0,51,0.18),
+        transparent 70%
+    );
+
+
+    top:50%;
+
+    left:50%;
+
+
+    transform:translate(-50%,-50%);
+
+
+    z-index:0;
+
+}
 
 
 
-    :root {
-
-        --section-space:70px;
-
-    }
 
 
 
 
+/* Hero content stays above glow */
 
-    .values-grid,
-    .grid,
-    .social-grid {
+.hero .container {
 
-        grid-template-columns:1fr;
+    position:relative;
 
-    }
+    z-index:1;
 
-
-
-
-    .brand {
-
-        font-size:1rem;
-
-    }
+}
 
 
 
 
-    h1 {
-
-        font-size:3rem;
-
-    }
 
 
+
+/* Main title */
+
+.hero h1 {
+
+    letter-spacing:-2px;
+
+    margin-bottom:20px;
+
+    font-weight:800;
+
+}
+
+
+
+
+
+
+
+/* Accent subtitle */
+
+.hero h2 {
+
+    color:var(--accent);
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+
+
+/* Description */
+
+.hero p {
+
+    max-width:750px;
+
+    margin:0 auto 40px;
+
+    font-size:1.2rem;
+
+}
+
+
+
+
+
+
+
+/* Hero buttons */
+
+.hero .btn {
+
+    margin-top:20px;
 
 }
