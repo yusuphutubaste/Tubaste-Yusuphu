@@ -2,10 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    /* =====================================================
-       LOAD NAVBAR
-    ===================================================== */
-
+    // LOAD NAVBAR
 
     fetch("components/navbar.html")
 
@@ -19,15 +16,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (navbar) {
 
-
             navbar.innerHTML = data;
 
 
             loadHamburger();
 
-
         }
 
+
+    })
+
+    .catch(error => {
+
+        console.log("Navbar loading error:", error);
 
     });
 
@@ -38,9 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    /* =====================================================
-       LOAD FOOTER
-    ===================================================== */
+    // LOAD FOOTER
 
 
     fetch("components/footer.html")
@@ -62,7 +61,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
+    })
+
+    .catch(error => {
+
+
+        console.log("Footer loading error:", error);
+
+
     });
+
+
+
+
+
 
 
 
@@ -76,32 +88,78 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-/* =====================================================
-   HAMBURGER MENU
-===================================================== */
+// LOAD HAMBURGER COMPONENT
 
 
 function loadHamburger(){
 
 
 
-    const hamburger =
-    document.getElementById("hamburger");
+    const container = document.getElementById("hamburger-container");
 
 
 
-    const menu =
-    document.querySelector(".nav-menu");
+    if (!container) return;
 
 
 
-    if(!hamburger || !menu){
-
-        return;
-
-    }
 
 
+    fetch("components/hamburger.html")
+
+
+    .then(response => response.text())
+
+
+    .then(data => {
+
+
+
+        container.innerHTML = data;
+
+
+
+        activateMenu();
+
+
+
+    })
+
+    .catch(error => {
+
+
+        console.log("Hamburger loading error:", error);
+
+
+    });
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// MOBILE MENU
+
+
+function activateMenu(){
+
+
+
+    const hamburger = document.getElementById("hamburger");
+
+
+    const navMenu = document.querySelector(".nav-menu");
+
+
+
+    if (!hamburger || !navMenu) return;
 
 
 
@@ -111,65 +169,23 @@ function loadHamburger(){
 
 
 
-        menu.classList.toggle("active");
-
-
-        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
 
 
 
         const expanded =
+
         hamburger.getAttribute("aria-expanded") === "true";
 
 
 
         hamburger.setAttribute(
+
             "aria-expanded",
+
             !expanded
+
         );
-
-
-
-    });
-
-
-
-
-
-
-
-
-    /* CLOSE MENU WHEN CLICKING LINK */
-
-
-    const links =
-    menu.querySelectorAll("a");
-
-
-
-    links.forEach(link => {
-
-
-
-        link.addEventListener("click", function(){
-
-
-
-            menu.classList.remove("active");
-
-
-            hamburger.classList.remove("active");
-
-
-
-            hamburger.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-
-
-        });
 
 
 
