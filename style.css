@@ -1,244 +1,101 @@
 /* =====================================================
-TUBASTE VALUES SECTION
+HERO SECTION
 ===================================================== */
 
 
-.values-grid {
+.hero {
 
-    display:grid;
+    min-height:100vh;
 
-    grid-template-columns:repeat(4,1fr);
+    display:flex;
 
-    gap:25px;
+    align-items:center;
 
-}
+    justify-content:center;
 
-
-
-
-
-
-
-
-/* =====================================================
-CARD DESIGN
-===================================================== */
-
-
-.card {
-
-    background:
-
-    linear-gradient(
-        145deg,
-        #181818,
-        #101010
-    );
-
-
-    padding:35px;
-
-
-    border-radius:var(--radius);
-
-
-    border:1px solid rgba(255,255,255,0.05);
-
-
-    transition:var(--transition);
-
+    text-align:center;
 
     position:relative;
 
-
     overflow:hidden;
 
+    padding-top:80px;
 
 }
 
 
-
-
-
-
-
-
-/* Card glow effect */
-
-
-.card::before {
-
+.hero::before {
 
     content:"";
 
-
     position:absolute;
 
+    width:600px;
 
-    width:140px;
-
-
-    height:140px;
-
+    height:600px;
 
     background:
-
-    rgba(255,0,51,0.25);
-
-
-
-    filter:blur(55px);
-
+    radial-gradient(
+        circle,
+        rgba(255,0,51,0.18),
+        transparent 70%
+    );
 
 
-    top:-50px;
+    top:50%;
+
+    left:50%;
 
 
-    right:-50px;
+    transform:translate(-50%,-50%);
 
 
-
-    opacity:0;
-
-
-
-    transition:.3s ease;
-
-
+    z-index:0;
 
 }
 
 
 
+.hero .container {
 
+    position:relative;
 
-
-
-
-.card:hover::before {
-
-
-    opacity:1;
-
+    z-index:1;
 
 }
 
 
 
+.hero h1 {
 
+    letter-spacing:-2px;
 
+    margin-bottom:20px;
 
-
-
-/* Card movement */
-
-
-.card:hover {
-
-
-    transform:translateY(-10px);
-
-
-
-    border-color:
-
-    rgba(255,0,51,0.45);
-
-
+    font-weight:800;
 
 }
 
 
 
+.hero h2 {
 
+    color:var(--accent);
 
+    font-weight:700;
 
-
-
-/* Card title */
-
-
-.card h3 {
-
-
-    font-size:1.5rem;
-
-
-
-    margin-bottom:15px;
-
-
-
-    color:var(--white);
-
-
+    margin-bottom:25px;
 
 }
 
 
 
+.hero p {
 
+    max-width:750px;
 
+    margin:0 auto 40px;
 
-
-
-/* Card text */
-
-
-.card p {
-
-
-    color:var(--gray);
-
-
-
-    font-size:1.05rem;
-
-
-
-}
-
-
-
-
-
-
-
-
-/* =====================================================
-RESPONSIVE VALUES
-===================================================== */
-
-
-@media(max-width:900px){
-
-
-    .values-grid {
-
-
-        grid-template-columns:repeat(2,1fr);
-
-
-    }
-
-
-}
-
-
-
-
-
-
-@media(max-width:600px){
-
-
-    .values-grid {
-
-
-        grid-template-columns:1fr;
-
-
-    }
-
+    font-size:1.2rem;
 
 }
