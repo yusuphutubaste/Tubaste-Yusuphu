@@ -1,8 +1,13 @@
 /* =========================================================
    TUBASTE WEBSITE
    GLOBAL JAVASCRIPT
+   VERSION 2.0
    ========================================================= */
 
+
+/* =========================================================
+   01. INITIALIZE WEBSITE
+   ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -13,154 +18,142 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
 /* =========================================================
-   LOAD NAVBAR
+   02. COMPONENT LOADER
    ========================================================= */
 
-function loadNavbar() {
+async function loadComponent(url, containerId, componentName) {
 
-    fetch("components/navbar.html")
+    const container = document.getElementById(containerId);
 
-        .then(response => {
+    if (!container) {
+        return null;
+    }
 
-            if (!response.ok) {
+    try {
 
-                throw new Error(
-                    `Navbar could not be loaded: ${response.status}`
-                );
+        const response = await fetch(url, {
+            cache: "no-cache"
+        });
 
-            }
+        if (!response.ok) {
 
-            return response.text();
-
-        })
-
-        .then(data => {
-
-            const navbar = document.getElementById("navbar");
-
-            if (!navbar) return;
-
-            navbar.innerHTML = data;
-
-            setActivePage();
-
-            loadHamburger();
-
-        })
-
-        .catch(error => {
-
-            console.error(
-                "Navbar loading error:",
-                error
+            throw new Error(
+                `${componentName} could not be loaded: ${response.status}`
             );
 
-        });
+        }
+
+        const html = await response.text();
+
+        container.innerHTML = html;
+
+        return container;
+
+    } catch (error) {
+
+        console.error(
+            `${componentName} loading error:`,
+            error
+        );
+
+        return null;
+
+    }
 
 }
 
 
-
 /* =========================================================
-   LOAD FOOTER
+   03. LOAD NAVBAR
    ========================================================= */
 
-function loadFooter() {
+async function loadNavbar() {
 
-    fetch("components/footer.html")
+    const navbar = await loadComponent(
+        "components/navbar.html",
+        "navbar",
+        "Navbar"
+    );
 
-        .then(response => {
+    if (!navbar) {
+        return;
+    }
 
-            if (!response.ok) {
+    setActivePage();
 
-                throw new Error(
-                    `Footer could not be loaded: ${response.status}`
-                );
-
-            }
-
-            return response.text();
-
-        })
-
-        .then(data => {
-
-            const footer = document.getElementById("footer");
-
-            if (!footer) return;
-
-            footer.innerHTML = data;
-
-        })
-
-        .catch(error => {
-
-            console.error(
-                "Footer loading error:",
-                error
-            );
-
-        });
+    loadHamburger();
 
 }
 
 
-
 /* =========================================================
-   LOAD HAMBURGER COMPONENT
+   04. LOAD FOOTER
    ========================================================= */
 
-function loadHamburger() {
+async function loadFooter() {
+
+    await loadComponent(
+        "components/footer.html",
+        "footer",
+        "Footer"
+    );
+
+}
+
+
+/* =========================================================
+   05. LOAD HAMBURGER
+   ========================================================= */
+
+async function loadHamburger() {
 
     const container =
         document.getElementById(
             "hamburger-container"
         );
 
-    if (!container) return;
+    if (!container) {
+        return;
+    }
 
+    try {
 
-    fetch("components/hamburger.html")
-
-        .then(response => {
-
-            if (!response.ok) {
-
-                throw new Error(
-                    `Hamburger could not be loaded: ${response.status}`
-                );
-
+        const response = await fetch(
+            "components/hamburger.html",
+            {
+                cache: "no-cache"
             }
+        );
 
-            return response.text();
+        if (!response.ok) {
 
-        })
-
-        .then(data => {
-
-            container.innerHTML = data;
-
-            activateMenu();
-
-        })
-
-        .catch(error => {
-
-            console.error(
-                "Hamburger loading error:",
-                error
+            throw new Error(
+                `Hamburger could not be loaded: ${response.status}`
             );
 
-        });
+        }
+
+        const html = await response.text();
+
+        container.innerHTML = html;
+
+        activateMenu();
+
+    } catch (error) {
+
+        console.error(
+            "Hamburger loading error:",
+            error
+        );
+
+    }
 
 }
 
 
-
 /* =========================================================
-   MOBILE MENU
+   06. MOBILE NAVIGATION
    ========================================================= */
 
 function activateMenu() {
@@ -171,21 +164,39 @@ function activateMenu() {
     const navMenu =
         document.getElementById("main-navigation");
 
-
-    if (!hamburger || !navMenu) return;
+    if (!hamburger || !navMenu) {
+        return;
+    }
 
 
     /* -----------------------------------------
-       OPEN / CLOSE MENU
+       INITIAL ACCESSIBILITY STATE
+       ----------------------------------------- */
+
+    hamburger.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    hamburger.setAttribute(
+        "aria-label",
+        "Open navigation menu"
+    );
+
+
+
+    /* -----------------------------------------
+       OPEN / CLOSE
        ----------------------------------------- */
 
     hamburger.addEventListener(
         "click",
-        function () {
+        function (event) {
+
+            event.stopPropagation();
 
             const isOpen =
                 navMenu.classList.contains("active");
-
 
             if (isOpen) {
 
@@ -203,12 +214,11 @@ function activateMenu() {
 
 
     /* -----------------------------------------
-       CLOSE MENU WHEN LINK IS CLICKED
+       CLOSE WHEN NAV LINK IS CLICKED
        ----------------------------------------- */
 
     const navLinks =
         navMenu.querySelectorAll("a");
-
 
     navLinks.forEach(function (link) {
 
@@ -226,14 +236,31 @@ function activateMenu() {
 
 
     /* -----------------------------------------
-       CLOSE MENU WITH ESCAPE KEY
+       PREVENT MENU CLICK FROM CLOSING ITSELF
+       ----------------------------------------- */
+
+    navMenu.addEventListener(
+        "click",
+        function (event) {
+
+            event.stopPropagation();
+
+        }
+    );
+
+
+
+    /* -----------------------------------------
+       CLOSE WHEN CLICKING OUTSIDE
        ----------------------------------------- */
 
     document.addEventListener(
-        "keydown",
-        function (event) {
+        "click",
+        function () {
 
-            if (event.key === "Escape") {
+            if (
+                navMenu.classList.contains("active")
+            ) {
 
                 closeMenu();
 
@@ -245,14 +272,41 @@ function activateMenu() {
 
 
     /* -----------------------------------------
-       CLOSE MENU IF WINDOW BECOMES DESKTOP
+       CLOSE WITH ESCAPE
+       ----------------------------------------- */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape" &&
+                navMenu.classList.contains("active")
+            ) {
+
+                closeMenu();
+
+                hamburger.focus();
+
+            }
+
+        }
+    );
+
+
+
+    /* -----------------------------------------
+       CLOSE ON DESKTOP RESIZE
        ----------------------------------------- */
 
     window.addEventListener(
         "resize",
         function () {
 
-            if (window.innerWidth > 900) {
+            if (
+                window.innerWidth > 900 &&
+                navMenu.classList.contains("active")
+            ) {
 
                 closeMenu();
 
@@ -264,9 +318,8 @@ function activateMenu() {
 }
 
 
-
 /* =========================================================
-   OPEN MENU
+   07. OPEN MOBILE MENU
    ========================================================= */
 
 function openMenu() {
@@ -277,13 +330,15 @@ function openMenu() {
     const navMenu =
         document.getElementById("main-navigation");
 
-
-    if (!hamburger || !navMenu) return;
+    if (!hamburger || !navMenu) {
+        return;
+    }
 
 
     navMenu.classList.add("active");
 
     hamburger.classList.add("active");
+
 
     hamburger.setAttribute(
         "aria-expanded",
@@ -295,12 +350,18 @@ function openMenu() {
         "Close navigation menu"
     );
 
+
+    /* Prevent background scrolling */
+
+    document.body.classList.add(
+        "menu-open"
+    );
+
 }
 
 
-
 /* =========================================================
-   CLOSE MENU
+   08. CLOSE MOBILE MENU
    ========================================================= */
 
 function closeMenu() {
@@ -311,13 +372,15 @@ function closeMenu() {
     const navMenu =
         document.getElementById("main-navigation");
 
-
-    if (!hamburger || !navMenu) return;
+    if (!hamburger || !navMenu) {
+        return;
+    }
 
 
     navMenu.classList.remove("active");
 
     hamburger.classList.remove("active");
+
 
     hamburger.setAttribute(
         "aria-expanded",
@@ -329,43 +392,145 @@ function closeMenu() {
         "Open navigation menu"
     );
 
+
+    /* Restore background scrolling */
+
+    document.body.classList.remove(
+        "menu-open"
+    );
+
 }
 
 
-
 /* =========================================================
-   ACTIVE PAGE
+   09. ACTIVE PAGE
    ========================================================= */
 
 function setActivePage() {
-
-    const currentPage =
-        window.location.pathname
-        .split("/")
-        .pop();
-
 
     const navLinks =
         document.querySelectorAll(
             ".nav-menu a"
         );
 
+    if (!navLinks.length) {
+        return;
+    }
+
+
+    /* -----------------------------------------
+       GET CURRENT PAGE
+       ----------------------------------------- */
+
+    let currentPage =
+        window.location.pathname
+        .split("/")
+        .pop();
+
+
+    /*
+       If the pathname ends with a slash,
+       treat it as the homepage.
+    */
+
+    if (!currentPage) {
+
+        currentPage =
+            "index.html";
+
+    }
+
 
     navLinks.forEach(function (link) {
 
-        const linkPage =
+        const rawHref =
             link.getAttribute("href");
 
+
+        if (!rawHref) {
+            return;
+        }
+
+
+        /*
+           Ignore external links,
+           anchors and javascript links.
+        */
+
+        if (
+            rawHref.startsWith("http://") ||
+            rawHref.startsWith("https://") ||
+            rawHref.startsWith("#") ||
+            rawHref.startsWith("javascript:")
+        ) {
+
+            return;
+
+        }
+
+
+        /*
+           Convert the link into a clean filename.
+        */
+
+        let linkPage;
+
+        try {
+
+            const linkURL =
+                new URL(
+                    rawHref,
+                    window.location.href
+                );
+
+            linkPage =
+                linkURL.pathname
+                .split("/")
+                .pop();
+
+        } catch (error) {
+
+            return;
+
+        }
+
+
+        if (!linkPage) {
+
+            linkPage =
+                "index.html";
+
+        }
+
+
+        /*
+           Remove any previous active state.
+        */
+
+        link.classList.remove(
+            "active"
+        );
+
+        link.removeAttribute(
+            "aria-current"
+        );
+
+
+        /*
+           Set active page.
+        */
 
         if (
             linkPage === currentPage ||
             (
-                currentPage === "" &&
-                linkPage === "index.html"
+                currentPage === "index.html" &&
+                linkPage === ""
             )
         ) {
 
-            link.classList.add("active");
+            link.classList.add(
+                "active"
+            );
 
             link.setAttribute(
                 "aria-current",
@@ -377,3 +542,78 @@ function setActivePage() {
     });
 
 }
+
+
+/* =========================================================
+   10. PAGE SCROLL LOCK
+   ========================================================= */
+
+function preventMenuScroll() {
+
+    const menuOpen =
+        document.body.classList.contains(
+            "menu-open"
+        );
+
+    if (menuOpen) {
+
+        document.body.style.overflow =
+            "hidden";
+
+    } else {
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+}
+
+
+/* =========================================================
+   11. OBSERVE MENU STATE
+   ========================================================= */
+
+const menuStateObserver =
+    new MutationObserver(
+        function () {
+
+            preventMenuScroll();
+
+        }
+    );
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        menuStateObserver.observe(
+            document.body,
+            {
+                attributes: true,
+                attributeFilter: ["class"]
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   12. CLEANUP ON PAGE EXIT
+   ========================================================= */
+
+window.addEventListener(
+    "beforeunload",
+    function () {
+
+        document.body.classList.remove(
+            "menu-open"
+        );
+
+        document.body.style.overflow =
+            "";
+
+    }
+);
