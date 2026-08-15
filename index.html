@@ -12,7 +12,7 @@
 
     <meta
         name="description"
-        content="BUILD. GROW. LEAD. A creator platform built around ideas, growth, leadership, community, content, and connection."
+        content="TUBASTE — BUILD. GROW. LEAD. Ideas, videos, leadership, creativity, community, and connection."
     >
 
     <meta
@@ -20,7 +20,23 @@
         content="#050505"
     >
 
-    <title>BUILD. GROW. LEAD.</title>
+    <title>TUBASTE — BUILD. GROW. LEAD.</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
     <link
         rel="stylesheet"
@@ -37,27 +53,138 @@
          NAVIGATION
     ====================================================== -->
 
-    <div id="navbar"></div>
+    <header class="navbar" id="navbar">
+
+        <div class="navbar-container">
+
+            <a
+                href="index.html"
+                class="brand"
+                aria-label="TUBASTE Home"
+            >
+                TUBASTE
+            </a>
+
+
+            <nav
+                class="nav-menu"
+                id="navMenu"
+                aria-label="Main navigation"
+            >
+
+                <ul>
+
+                    <li>
+                        <a
+                            href="index.html"
+                            class="active"
+                        >
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="videos.html">
+                            Videos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="reels.html">
+                            Reels
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="gallery.html">
+                            Gallery
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="work.html">
+                            Work
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="community.html">
+                            Community
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <div class="navbar-actions">
+
+                <a
+                    href="https://www.youtube.com/@TubasteYusuphu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="nav-subscribe"
+                >
+                    Subscribe
+                </a>
+
+
+                <button
+                    class="hamburger"
+                    id="hamburger"
+                    type="button"
+                    aria-label="Open navigation"
+                    aria-expanded="false"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
 
 
     <main>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              HERO
-        ================================================== -->
+        ====================================================== -->
 
         <section
             class="hero"
             id="home"
         >
 
+            <div class="hero-glow"></div>
+
+            <div class="hero-grid"></div>
+
+
             <div class="hero-content">
 
 
-                <span class="hero-eyebrow">
+                <div class="hero-kicker">
+
+                    <span class="hero-kicker-dot"></span>
+
                     BUILD. GROW. LEAD.
-                </span>
+
+                </div>
 
 
                 <h1>
@@ -73,77 +200,83 @@
 
                 <p class="hero-description">
 
-                    Ideas. Growth. Leadership. Community.
-
-                    Discover videos, reels, conversations,
-                    resources, and stories created to inspire
-                    action and help you move forward.
+                    Ideas, growth, leadership, creativity,
+                    community, and the people who connect
+                    them all together.
 
                 </p>
 
 
                 <div class="hero-actions">
 
-
                     <a
                         href="videos.html"
                         class="primary-btn"
                     >
-                        WATCH VIDEOS
+                        Watch Latest
+                        <span>↗</span>
                     </a>
 
 
                     <a
-                        href="#reels"
+                        href="reels.html"
                         class="secondary-btn"
                     >
-                        EXPLORE REELS
+                        Explore Reels
                     </a>
-
 
                 </div>
 
 
+                <div class="hero-meta">
+
+                    <div class="hero-meta-line"></div>
+
+                    <span>
+                        CONTENT • COMMUNITY • CONNECTION
+                    </span>
+
+                </div>
+
             </div>
 
 
-            <div class="hero-scroll">
+            <div class="hero-bottom">
 
                 <span>
                     SCROLL TO EXPLORE
                 </span>
 
-                <span class="scroll-line"></span>
+                <div class="scroll-indicator">
+
+                    <span></span>
+
+                </div>
 
             </div>
-
 
         </section>
 
 
 
-        <!-- =================================================
-             FEATURED VIDEO
-        ================================================== -->
+        <!-- =====================================================
+             FEATURED
+        ====================================================== -->
 
-        <section
-            class="featured-section"
-            id="featured"
-        >
+        <section class="featured-section section-reveal">
 
 
             <div class="section-header">
 
-
                 <div>
 
                     <span class="section-label">
-                        FEATURED
+                        01 / FEATURED
                     </span>
 
-
                     <h2>
-                        WATCH THE LATEST
+                        WATCH THE
+                        <span>LATEST.</span>
                     </h2>
 
                 </div>
@@ -153,97 +286,129 @@
                     href="videos.html"
                     class="section-link"
                 >
-                    VIEW ALL VIDEOS →
+                    View all videos
+                    <span>→</span>
                 </a>
-
 
             </div>
 
 
 
-            <article class="featured-video">
+            <div class="featured-video">
 
 
-                <div class="video-placeholder">
+                <a
+                    href="videos.html"
+                    class="featured-media"
+                    aria-label="Watch latest video"
+                >
+
+                    <div class="media-gradient"></div>
+
+                    <div class="featured-media-content">
+
+                        <span class="media-eyebrow">
+                            LATEST VIDEO
+                        </span>
 
 
-                    <!--
-                        FUTURE:
-                        Featured uploaded video goes here.
-                    -->
+                        <div class="large-play">
+
+                            <span>
+                                ▶
+                            </span>
+
+                        </div>
 
 
-                    <div class="play-button">
-                        ▶
+                        <span class="media-watch">
+                            WATCH NOW
+                        </span>
+
                     </div>
 
-
-                </div>
+                </a>
 
 
 
                 <div class="featured-info">
 
+                    <div class="featured-number">
+                        01
+                    </div>
+
 
                     <span class="content-type">
-                        LATEST VIDEO
+                        FEATURED VIDEO
                     </span>
 
 
                     <h3>
-                        Your Latest Video Title
+                        Your Latest
+                        <span>Story.</span>
                     </h3>
 
 
                     <p>
-
-                        Your newest long-form video can be
-                        featured here with a title, description,
-                        thumbnail, and watch button.
-
+                        This is where your newest video,
+                        story, conversation, or idea takes
+                        center stage. Replace this text with
+                        the real description of your featured
+                        content.
                     </p>
+
+
+                    <div class="featured-details">
+
+                        <span>
+                            VIDEO
+                        </span>
+
+                        <span>
+                            •
+                        </span>
+
+                        <span>
+                            LATEST
+                        </span>
+
+                    </div>
 
 
                     <a
                         href="videos.html"
-                        class="primary-btn"
+                        class="text-button"
                     >
-                        WATCH NOW
+                        Watch the full video
+                        <span>↗</span>
                     </a>
-
 
                 </div>
 
-
-            </article>
-
+            </div>
 
         </section>
 
 
 
-        <!-- =================================================
-             LATEST VIDEOS
-        ================================================== -->
+        <!-- =====================================================
+             VIDEOS
+        ====================================================== -->
 
-        <section
-            class="content-section"
-            id="videos"
-        >
+        <section class="content-section section-reveal">
 
 
             <div class="section-header">
 
-
                 <div>
 
                     <span class="section-label">
-                        LONG FORM
+                        02 / VIDEOS
                     </span>
 
-
                     <h2>
-                        LATEST VIDEOS
+                        IDEAS WORTH
+                        <span>WATCHING.</span>
                     </h2>
 
                 </div>
@@ -253,9 +418,9 @@
                     href="videos.html"
                     class="section-link"
                 >
-                    VIEW ALL →
+                    View all
+                    <span>→</span>
                 </a>
-
 
             </div>
 
@@ -264,173 +429,196 @@
             <div class="content-grid">
 
 
-                <!-- VIDEO 01 -->
-
                 <article class="content-card">
 
+                    <a
+                        href="videos.html"
+                        class="card-media"
+                    >
 
-                    <div class="card-media">
+                        <div class="thumbnail-number">
+                            01
+                        </div>
 
-
-                        <!--
-                            VIDEO THUMBNAIL WILL GO HERE
-                        -->
-
-
-                        <span class="media-play">
+                        <div class="card-play">
                             ▶
+                        </div>
+
+                        <span class="card-category">
+                            VIDEO
                         </span>
 
-
-                    </div>
+                    </a>
 
 
                     <div class="card-content">
 
-
                         <span class="content-meta">
-                            VIDEO
+                            FEATURED
                         </span>
 
-
                         <h3>
-                            Your Video Title
+                            Your Video Title Goes Here
                         </h3>
 
-
                         <p>
-                            Add a short description for
-                            this video.
+                            A short description of the
+                            conversation, lesson, or idea.
                         </p>
 
 
-                    </div>
+                        <a
+                            href="videos.html"
+                            class="card-link"
+                        >
+                            Watch
+                            <span>→</span>
+                        </a>
 
+                    </div>
 
                 </article>
 
 
 
-                <!-- VIDEO 02 -->
-
                 <article class="content-card">
 
+                    <a
+                        href="videos.html"
+                        class="card-media"
+                    >
 
-                    <div class="card-media">
+                        <div class="thumbnail-number">
+                            02
+                        </div>
 
-                        <span class="media-play">
+                        <div class="card-play">
                             ▶
+                        </div>
+
+                        <span class="card-category">
+                            VIDEO
                         </span>
 
-                    </div>
+                    </a>
 
 
                     <div class="card-content">
 
-
                         <span class="content-meta">
-                            VIDEO
+                            LATEST
                         </span>
 
-
                         <h3>
-                            Your Video Title
+                            Another Story Worth Sharing
                         </h3>
 
-
                         <p>
-                            Add a short description for
-                            this video.
+                            Add a short description of this
+                            piece of content here.
                         </p>
 
 
-                    </div>
+                        <a
+                            href="videos.html"
+                            class="card-link"
+                        >
+                            Watch
+                            <span>→</span>
+                        </a>
 
+                    </div>
 
                 </article>
 
 
 
-                <!-- VIDEO 03 -->
-
                 <article class="content-card">
 
+                    <a
+                        href="videos.html"
+                        class="card-media"
+                    >
 
-                    <div class="card-media">
+                        <div class="thumbnail-number">
+                            03
+                        </div>
 
-                        <span class="media-play">
+                        <div class="card-play">
                             ▶
+                        </div>
+
+                        <span class="card-category">
+                            VIDEO
                         </span>
 
-                    </div>
+                    </a>
 
 
                     <div class="card-content">
 
-
                         <span class="content-meta">
-                            VIDEO
+                            FEATURE
                         </span>
 
-
                         <h3>
-                            Your Video Title
+                            Build Something That Matters
                         </h3>
 
-
                         <p>
-                            Add a short description for
-                            this video.
+                            Replace this with your real video
+                            description and story.
                         </p>
 
 
+                        <a
+                            href="videos.html"
+                            class="card-link"
+                        >
+                            Watch
+                            <span>→</span>
+                        </a>
+
                     </div>
 
-
                 </article>
-
 
             </div>
-
 
         </section>
 
 
 
-        <!-- =================================================
+        <!-- =====================================================
              REELS
-        ================================================== -->
+        ====================================================== -->
 
-        <section
-            class="content-section"
-            id="reels"
-        >
+        <section class="content-section reels-section section-reveal">
 
 
             <div class="section-header">
 
-
                 <div>
 
                     <span class="section-label">
-                        SHORT FORM
+                        03 / SHORT FORM
                     </span>
 
-
                     <h2>
-                        REELS
+                        SMALL MOMENTS.
+                        <span>BIG IDEAS.</span>
                     </h2>
 
                 </div>
 
 
                 <a
-                    href="videos.html#reels"
+                    href="reels.html"
                     class="section-link"
                 >
-                    MORE CONTENT →
+                    View all reels
+                    <span>→</span>
                 </a>
-
 
             </div>
 
@@ -439,174 +627,155 @@
             <div class="reels-grid">
 
 
-                <!-- REEL 01 -->
-
                 <article class="reel-card">
 
+                    <a
+                        href="reels.html"
+                        class="reel-media"
+                    >
 
-                    <div class="reel-media">
-
-
-                        <!--
-                            FUTURE:
-                            Uploaded vertical video goes here.
-                        -->
-
+                        <span class="reel-index">
+                            01
+                        </span>
 
                         <span class="reel-play">
                             ▶
                         </span>
 
-
                         <span class="reel-label">
                             REEL
                         </span>
 
-
-                    </div>
+                    </a>
 
 
                     <div class="reel-info">
-
 
                         <h3>
                             Your Reel Title
                         </h3>
 
-
                         <p>
-                            Short caption goes here.
+                            Short thought or caption.
                         </p>
 
-
                     </div>
-
 
                 </article>
 
 
 
-                <!-- REEL 02 -->
-
                 <article class="reel-card">
 
+                    <a
+                        href="reels.html"
+                        class="reel-media"
+                    >
 
-                    <div class="reel-media">
-
+                        <span class="reel-index">
+                            02
+                        </span>
 
                         <span class="reel-play">
                             ▶
                         </span>
 
-
                         <span class="reel-label">
                             REEL
                         </span>
 
-
-                    </div>
+                    </a>
 
 
                     <div class="reel-info">
 
-
                         <h3>
-                            Your Reel Title
+                            A Thought Worth Sharing
                         </h3>
 
-
                         <p>
-                            Short caption goes here.
+                            Short thought or caption.
                         </p>
 
-
                     </div>
-
 
                 </article>
 
 
 
-                <!-- REEL 03 -->
-
                 <article class="reel-card">
 
+                    <a
+                        href="reels.html"
+                        class="reel-media"
+                    >
 
-                    <div class="reel-media">
-
+                        <span class="reel-index">
+                            03
+                        </span>
 
                         <span class="reel-play">
                             ▶
                         </span>
 
-
                         <span class="reel-label">
                             REEL
                         </span>
 
-
-                    </div>
+                    </a>
 
 
                     <div class="reel-info">
 
-
                         <h3>
-                            Your Reel Title
+                            Keep Moving Forward
                         </h3>
 
-
                         <p>
-                            Short caption goes here.
+                            Short thought or caption.
                         </p>
 
-
                     </div>
-
 
                 </article>
 
 
 
-                <!-- REEL 04 -->
-
                 <article class="reel-card">
 
+                    <a
+                        href="reels.html"
+                        class="reel-media"
+                    >
 
-                    <div class="reel-media">
-
+                        <span class="reel-index">
+                            04
+                        </span>
 
                         <span class="reel-play">
                             ▶
                         </span>
 
-
                         <span class="reel-label">
                             REEL
                         </span>
 
-
-                    </div>
+                    </a>
 
 
                     <div class="reel-info">
 
-
                         <h3>
-                            Your Reel Title
+                            Build. Grow. Lead.
                         </h3>
 
-
                         <p>
-                            Short caption goes here.
+                            Short thought or caption.
                         </p>
-
 
                     </div>
 
-
                 </article>
-
 
             </div>
 
@@ -614,56 +783,50 @@
 
             <div class="center-action">
 
-
                 <a
-                    href="videos.html#reels"
+                    href="reels.html"
                     class="secondary-btn"
                 >
-                    EXPLORE MORE REELS
+                    Explore all reels
+                    <span>↗</span>
                 </a>
 
-
             </div>
-
 
         </section>
 
 
 
-        <!-- =================================================
+        <!-- =====================================================
              GALLERY
-        ================================================== -->
+        ====================================================== -->
 
-        <section
-            class="content-section"
-            id="gallery"
-        >
+        <section class="content-section gallery-section section-reveal">
 
 
             <div class="section-header">
 
-
                 <div>
 
                     <span class="section-label">
-                        MOMENTS
+                        04 / MOMENTS
                     </span>
 
-
                     <h2>
-                        GALLERY
+                        LIFE BEHIND
+                        <span>THE CONTENT.</span>
                     </h2>
 
                 </div>
 
 
                 <a
-                    href="social.html#gallery"
+                    href="gallery.html"
                     class="section-link"
                 >
-                    SEE MORE →
+                    View gallery
+                    <span>→</span>
                 </a>
-
 
             </div>
 
@@ -672,272 +835,137 @@
             <div class="gallery-grid">
 
 
-                <div class="gallery-item gallery-large">
+                <a
+                    href="gallery.html"
+                    class="gallery-item gallery-large"
+                >
 
-                    <span>
-                        PHOTO
-                    </span>
+                    <span class="gallery-overlay"></span>
 
-                </div>
+                    <div class="gallery-caption">
+                        <span>01</span>
+                        FEATURED MOMENT
+                    </div>
 
-
-                <div class="gallery-item">
-
-                    <span>
-                        PHOTO
-                    </span>
-
-                </div>
+                </a>
 
 
-                <div class="gallery-item">
+                <a
+                    href="gallery.html"
+                    class="gallery-item"
+                >
 
-                    <span>
-                        PHOTO
-                    </span>
+                    <span class="gallery-overlay"></span>
 
-                </div>
+                    <div class="gallery-caption">
+                        <span>02</span>
+                        MOMENT
+                    </div>
 
-
-                <div class="gallery-item">
-
-                    <span>
-                        PHOTO
-                    </span>
-
-                </div>
+                </a>
 
 
-                <div class="gallery-item gallery-wide">
+                <a
+                    href="gallery.html"
+                    class="gallery-item"
+                >
 
-                    <span>
-                        PHOTO
-                    </span>
+                    <span class="gallery-overlay"></span>
 
-                </div>
+                    <div class="gallery-caption">
+                        <span>03</span>
+                        MOMENT
+                    </div>
 
+                </a>
+
+
+                <a
+                    href="gallery.html"
+                    class="gallery-item"
+                >
+
+                    <span class="gallery-overlay"></span>
+
+                    <div class="gallery-caption">
+                        <span>04</span>
+                        MOMENT
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="gallery.html"
+                    class="gallery-item gallery-wide"
+                >
+
+                    <span class="gallery-overlay"></span>
+
+                    <div class="gallery-caption">
+                        <span>05</span>
+                        FEATURED STORY
+                    </div>
+
+                </a>
 
             </div>
-
 
         </section>
 
 
 
-        <!-- =================================================
-             RESOURCES / DOCUMENTS
-        ================================================== -->
-
-        <section
-            class="content-section"
-            id="resources"
-        >
-
-
-            <div class="section-header">
-
-
-                <div>
-
-                    <span class="section-label">
-                        RESOURCES
-                    </span>
-
-
-                    <h2>
-                        DOCUMENTS & FILES
-                    </h2>
-
-                </div>
-
-
-            </div>
-
-
-
-            <div class="content-grid">
-
-
-                <!-- RESOURCE 01 -->
-
-                <article class="content-card">
-
-
-                    <div class="card-content">
-
-
-                        <span class="content-meta">
-                            DOCUMENT
-                        </span>
-
-
-                        <h3>
-                            Your Resource Title
-                        </h3>
-
-
-                        <p>
-                            Share guides, documents,
-                            PDFs, or useful resources
-                            with your audience.
-                        </p>
-
-
-                        <br>
-
-
-                        <a
-                            href="#"
-                            class="secondary-btn"
-                        >
-                            DOWNLOAD
-                        </a>
-
-
-                    </div>
-
-
-                </article>
-
-
-
-                <!-- RESOURCE 02 -->
-
-                <article class="content-card">
-
-
-                    <div class="card-content">
-
-
-                        <span class="content-meta">
-                            GUIDE
-                        </span>
-
-
-                        <h3>
-                            Your Guide Title
-                        </h3>
-
-
-                        <p>
-                            Add educational material,
-                            guides, or downloadable files.
-                        </p>
-
-
-                        <br>
-
-
-                        <a
-                            href="#"
-                            class="secondary-btn"
-                        >
-                            OPEN RESOURCE
-                        </a>
-
-
-                    </div>
-
-
-                </article>
-
-
-
-                <!-- RESOURCE 03 -->
-
-                <article class="content-card">
-
-
-                    <div class="card-content">
-
-
-                        <span class="content-meta">
-                            RESOURCE
-                        </span>
-
-
-                        <h3>
-                            Your Resource
-                        </h3>
-
-
-                        <p>
-                            Your future uploaded resource
-                            will appear here.
-                        </p>
-
-
-                        <br>
-
-
-                        <a
-                            href="#"
-                            class="secondary-btn"
-                        >
-                            VIEW
-                        </a>
-
-
-                    </div>
-
-
-                </article>
-
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- =================================================
+        <!-- =====================================================
              ABOUT
-        ================================================== -->
+        ====================================================== -->
 
-        <section
-            class="about-preview"
-            id="about-preview"
-        >
+        <section class="about-section section-reveal">
 
 
             <div class="about-content">
 
 
                 <span class="section-label">
-                    THE CREATOR
+                    05 / THE CREATOR
                 </span>
 
 
                 <h2>
 
-                    THIS IS
+                    I CREATE TO
 
                     <span>
-                        MY STORY.
+                        CONNECT.
                     </span>
 
                 </h2>
 
 
-                <p>
+                <p class="about-lead">
 
                     BUILD. GROW. LEAD. is more than a name.
+                    It is a mindset.
 
-                    It is a mindset built around learning,
-                    creating, connecting, and helping people
-                    move forward.
+                </p>
+
+
+                <p>
+
+                    This platform is built around ideas,
+                    experiences, creativity, leadership,
+                    learning, and the people we meet along
+                    the way.
 
                 </p>
 
 
                 <a
                     href="about.html"
-                    class="secondary-btn"
+                    class="primary-btn"
                 >
-                    MORE ABOUT ME
+                    My Story
+                    <span>↗</span>
                 </a>
-
 
             </div>
 
@@ -945,41 +973,54 @@
 
             <div class="about-visual">
 
+                <div class="about-visual-grid"></div>
 
-                <span>
-                    YOUR PHOTO
-                </span>
 
+                <div class="about-photo-placeholder">
+
+                    <span>
+                        YOUR PHOTO
+                    </span>
+
+                    <small>
+                        CREATOR / TUBASTE
+                    </small>
+
+                </div>
+
+
+                <div class="about-corner top-left">
+                    05
+                </div>
+
+                <div class="about-corner bottom-right">
+                    TUBASTE
+                </div>
 
             </div>
-
 
         </section>
 
 
 
-        <!-- =================================================
-             WORK / PROJECTS
-        ================================================== -->
+        <!-- =====================================================
+             WORK
+        ====================================================== -->
 
-        <section
-            class="content-section"
-            id="work-preview"
-        >
+        <section class="content-section work-section section-reveal">
 
 
             <div class="section-header">
 
-
                 <div>
 
                     <span class="section-label">
-                        CREATIVE WORK
+                        06 / CREATIVE WORK
                     </span>
 
-
                     <h2>
-                        PROJECTS
+                        THINGS I'M
+                        <span>BUILDING.</span>
                     </h2>
 
                 </div>
@@ -989,9 +1030,9 @@
                     href="work.html"
                     class="section-link"
                 >
-                    VIEW MY WORK →
+                    View my work
+                    <span>→</span>
                 </a>
-
 
             </div>
 
@@ -1000,87 +1041,98 @@
             <div class="project-grid">
 
 
-                <article class="project-card">
-
+                <a
+                    href="work.html"
+                    class="project-card"
+                >
 
                     <div class="project-image">
 
-                        PROJECT
+                        <span class="project-number">
+                            01
+                        </span>
+
+                        <span class="project-placeholder">
+                            PROJECT
+                        </span>
+
+                        <span class="project-arrow">
+                            ↗
+                        </span>
 
                     </div>
 
 
                     <div class="project-info">
-
 
                         <span>
                             FEATURED PROJECT
                         </span>
 
-
                         <h3>
                             Project Name
                         </h3>
 
-
                     </div>
 
-
-                </article>
-
+                </a>
 
 
-                <article class="project-card">
 
+                <a
+                    href="work.html"
+                    class="project-card"
+                >
 
                     <div class="project-image">
 
-                        PROJECT
+                        <span class="project-number">
+                            02
+                        </span>
+
+                        <span class="project-placeholder">
+                            PROJECT
+                        </span>
+
+                        <span class="project-arrow">
+                            ↗
+                        </span>
 
                     </div>
 
 
                     <div class="project-info">
 
-
                         <span>
                             COLLABORATION
                         </span>
-
 
                         <h3>
                             Project Name
                         </h3>
 
-
                     </div>
 
-
-                </article>
-
+                </a>
 
             </div>
-
 
         </section>
 
 
 
-        <!-- =================================================
+        <!-- =====================================================
              COMMUNITY
-        ================================================== -->
+        ====================================================== -->
 
-        <section
-            class="community-section"
-            id="community-preview"
-        >
+        <section class="community-section section-reveal">
 
 
             <div class="community-content">
 
 
                 <span class="section-label">
-                    COMMUNITY
+                    07 / COMMUNITY
                 </span>
 
 
@@ -1099,11 +1151,9 @@
 
                 <p>
 
-                    Connect with creators,
-                    entrepreneurs, leaders,
-                    and people who believe in
-                    growth, collaboration,
-                    and positive impact.
+                    Connect with people who believe in
+                    learning, creating, collaboration,
+                    growth, and positive impact.
 
                 </p>
 
@@ -1112,9 +1162,9 @@
                     href="community.html"
                     class="primary-btn"
                 >
-                    JOIN THE COMMUNITY
+                    Join the Community
+                    <span>↗</span>
                 </a>
-
 
             </div>
 
@@ -1125,21 +1175,26 @@
 
                 <div class="value-card">
 
+                    <div class="value-top">
 
-                    <span class="value-number">
-                        01
-                    </span>
+                        <span>
+                            01
+                        </span>
 
+                        <span>
+                            +
+                        </span>
+
+                    </div>
 
                     <h3>
                         CONNECT
                     </h3>
 
-
                     <p>
-                        Bring people and ideas together.
+                        Bring people, experiences,
+                        and ideas together.
                     </p>
-
 
                 </div>
 
@@ -1147,21 +1202,26 @@
 
                 <div class="value-card">
 
+                    <div class="value-top">
 
-                    <span class="value-number">
-                        02
-                    </span>
+                        <span>
+                            02
+                        </span>
 
+                        <span>
+                            +
+                        </span>
+
+                    </div>
 
                     <h3>
                         GROW
                     </h3>
 
-
                     <p>
-                        Learn from experiences and ideas.
+                        Learn from experiences and
+                        keep moving forward.
                     </p>
-
 
                 </div>
 
@@ -1169,60 +1229,60 @@
 
                 <div class="value-card">
 
+                    <div class="value-top">
 
-                    <span class="value-number">
-                        03
-                    </span>
+                        <span>
+                            03
+                        </span>
 
+                        <span>
+                            +
+                        </span>
+
+                    </div>
 
                     <h3>
                         LEAD
                     </h3>
 
-
                     <p>
-                        Create impact and inspire others.
+                        Create impact and inspire
+                        the people around you.
                     </p>
-
 
                 </div>
 
-
             </div>
-
 
         </section>
 
 
 
-        <!-- =================================================
+        <!-- =====================================================
              SOCIAL
-        ================================================== -->
+        ====================================================== -->
 
-        <section
-            class="social-section"
-            id="social"
-        >
+        <section class="social-section section-reveal">
 
 
             <span class="section-label">
-                CONNECT WITH ME
+                08 / CONNECT
             </span>
 
 
             <h2>
-                FOLLOW THE JOURNEY.
+                FOLLOW
+                <span>THE JOURNEY.</span>
             </h2>
 
 
             <p>
 
-                Follow along across my social platforms
-                and stay connected with everything
-                I'm creating.
+                Follow the conversations, behind-the-scenes
+                moments, ideas, and everything being built
+                along the way.
 
             </p>
-
 
 
             <div class="social-links">
@@ -1233,78 +1293,117 @@
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    YOUTUBE
+
+                    <span>
+                        YOUTUBE
+                    </span>
+
+                    <b>
+                        ↗
+                    </b>
+
                 </a>
 
 
                 <a href="social.html">
-                    INSTAGRAM
+
+                    <span>
+                        INSTAGRAM
+                    </span>
+
+                    <b>
+                        ↗
+                    </b>
+
                 </a>
 
 
                 <a href="social.html">
-                    TIKTOK
+
+                    <span>
+                        TIKTOK
+                    </span>
+
+                    <b>
+                        ↗
+                    </b>
+
                 </a>
 
 
                 <a href="social.html">
-                    MORE
-                </a>
 
+                    <span>
+                        MORE
+                    </span>
+
+                    <b>
+                        ↗
+                    </b>
+
+                </a>
 
             </div>
 
-
         </section>
 
 
 
-        <!-- =================================================
+        <!-- =====================================================
              FINAL CTA
-        ================================================== -->
+        ====================================================== -->
 
-        <section
-            class="final-cta"
-            id="subscribe"
-        >
+        <section class="final-cta section-reveal">
 
 
-            <span class="section-label">
-                STAY CONNECTED
-            </span>
+            <div class="cta-background"></div>
 
 
-            <h2>
+            <div class="cta-content">
 
-                READY TO
 
-                <span>
-                    BUILD?
+                <span class="section-label">
+                    START HERE
                 </span>
 
-            </h2>
+
+                <h2>
+
+                    READY TO
+
+                    <span>
+                        BUILD?
+                    </span>
+
+                </h2>
 
 
-            <p>
+                <p>
 
-                Subscribe, explore the content,
-                and become part of the journey.
+                    Subscribe, explore the content,
+                    and become part of the journey.
 
-            </p>
+                </p>
 
 
-            <a
-                href="https://www.youtube.com/@TubasteYusuphu"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="subscribe-btn"
-            >
-                SUBSCRIBE ON YOUTUBE
-            </a>
+                <a
+                    href="https://www.youtube.com/@TubasteYusuphu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="subscribe-btn"
+                >
 
+                    Subscribe on YouTube
+
+                    <span>
+                        ↗
+                    </span>
+
+                </a>
+
+            </div>
 
         </section>
-
 
     </main>
 
@@ -1314,16 +1413,161 @@
          FOOTER
     ====================================================== -->
 
-    <div id="footer"></div>
+    <footer class="footer">
+
+
+        <div class="footer-container">
+
+
+            <div class="footer-top">
+
+
+                <div class="footer-brand">
+
+                    <a
+                        href="index.html"
+                        class="footer-logo"
+                    >
+                        TUBASTE
+                    </a>
+
+
+                    <p>
+                        BUILD. GROW. LEAD.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-description">
+
+                    <p>
+                        Ideas, creativity, leadership,
+                        community, and connection.
+                    </p>
+
+                </div>
+
+            </div>
 
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
+            <div class="footer-middle">
+
+
+                <div>
+
+                    <span class="footer-heading">
+                        EXPLORE
+                    </span>
+
+                    <div class="footer-links">
+
+                        <a href="index.html">
+                            Home
+                        </a>
+
+                        <a href="videos.html">
+                            Videos
+                        </a>
+
+                        <a href="reels.html">
+                            Reels
+                        </a>
+
+                        <a href="gallery.html">
+                            Gallery
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div>
+
+                    <span class="footer-heading">
+                        DISCOVER
+                    </span>
+
+                    <div class="footer-links">
+
+                        <a href="about.html">
+                            About
+                        </a>
+
+                        <a href="work.html">
+                            Work
+                        </a>
+
+                        <a href="community.html">
+                            Community
+                        </a>
+
+                        <a href="contact.html">
+                            Contact
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div>
+
+                    <span class="footer-heading">
+                        SOCIAL
+                    </span>
+
+                    <div class="footer-links">
+
+                        <a
+                            href="https://www.youtube.com/@TubasteYusuphu"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            YouTube
+                        </a>
+
+                        <a href="social.html">
+                            Instagram
+                        </a>
+
+                        <a href="social.html">
+                            TikTok
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © <span id="currentYear">2026</span>
+                    TUBASTE. ALL RIGHTS RESERVED.
+                </span>
+
+
+                <span>
+                    BUILD. GROW. LEAD.
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
 
     <script src="script.js"></script>
-
 
 </body>
 
