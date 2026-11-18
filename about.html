@@ -1,317 +1,205 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
+!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Tubaste Yusuphu</title>
+  <meta name="description" content="Learn more about Tubaste Yusuphu, his journey, life principles, and vision for community empowerment.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-
-<meta charset="UTF-8">
-
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
-<title>
-About | BUILD. GROW. LEAD.
-</title>
-
-
-
-<link rel="stylesheet" href="style.css">
-
-
-
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 </head>
-
-
-
-
-
-<body>
-
-
-
-
-
-<!-- NAVBAR -->
-
-
-<div id="navbar"></div>
-
-
-
-
-
-
-
-
-
-<!-- ABOUT HERO -->
-
-
-<section class="hero">
-
-
-<h1>
-ABOUT TUBASTE
-</h1>
-
-
-
-<h2>
-EVERYTHING IS CONNECTED.
-</h2>
-
-
-
-<p>
-
-Building ideas, growing knowledge,
-and leading through creativity,
-connection, and meaningful conversations.
-
-</p>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- WHO IS TUBASTE -->
-
-
-<section class="community-section">
-
-
-<h2>
-Who Is Tubaste?
-</h2>
-
-
-
-<p>
-
-Tubaste is a creator platform focused on
-sharing ideas, experiences, and conversations
-that inspire people to build their vision,
-grow their skills, and lead with purpose.
-
-</p>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- BUILD GROW LEAD -->
-
-
-<section class="community-section">
-
-
-<h2>
-BUILD. GROW. LEAD.
-</h2>
-
-
-
-
-
-<div class="card-grid">
-
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-🚀 BUILD
-</h3>
-
-
-
-<p>
-
-Create ideas, take action,
-and build something meaningful
-for the future.
-
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-📚 GROW
-</h3>
-
-
-
-<p>
-
-Keep learning, develop skills,
-and improve through every experience.
-
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-👑 LEAD
-</h3>
-
-
-
-<p>
-
-Inspire others, create impact,
-and lead with confidence.
-
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-🤝 CONNECT
-</h3>
-
-
-
-<p>
-
-Bring people and ideas together
-through shared experiences.
-
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- VISION -->
-
-
-<section class="community-section">
-
-
-<h2>
-Our Vision
-</h2>
-
-
-
-<p>
-
-BUILD. GROW. LEAD. is about connecting
-people, ideas, and opportunities.
-
-Everything is connected, and everyone has
-the ability to create positive change.
-
-</p>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- FOOTER -->
-
-
-<div id="footer"></div>
-
-
-
-
-
-
-
-<script src="script.js"></script>
-
+<body class="bg-[#0b0f17] text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-black">
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[#0b0f17]/90 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="profile.jpg" alt="Tubaste Yusuphu" 
+             class="w-10 h-10 rounded-full object-cover border border-amber-500/80 group-hover:scale-105 transition duration-200"
+             onerror="this.src='https://ui-avatars.com/api/?name=Tubaste+Yusuphu&background=f59e0b&color=0b0f17&bold=true';">
+        <span class="text-xl font-extrabold tracking-tight text-white">
+          Tubaste <span class="text-amber-500">Yusuphu</span>
+        </span>
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+        <a href="index.html" class="hover:text-amber-400 transition">Home</a>
+        <a href="about.html" class="text-amber-400 font-bold transition">About Me</a>
+        <a href="index.html#videos" class="hover:text-amber-400 transition">Videos</a>
+        <a href="index.html#gallery" class="hover:text-amber-400 transition">Gallery</a>
+        <a href="index.html#contact" class="hover:text-amber-400 transition">Contact</a>
+      </div>
+
+      <!-- YouTube CTA Button -->
+      <div class="hidden md:block">
+        <a href="https://www.youtube.com/channel/UCjREHM2Ieny7s2t3VzfFR4Q?sub_confirmation=1" target="_blank" 
+           class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition shadow-lg shadow-red-600/25">
+          <i class="fab fa-youtube"></i> Subscribe
+        </a>
+      </div>
+
+      <!-- Mobile Button -->
+      <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white text-2xl focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden px-6 pt-3 pb-6 border-b border-slate-800 bg-[#0f172a] space-y-3">
+      <a href="index.html" class="block text-slate-300 py-1 font-medium">Home</a>
+      <a href="about.html" class="block text-amber-400 py-1 font-bold">About Me</a>
+      <a href="index.html#videos" class="block text-slate-300 py-1 font-medium">Videos</a>
+      <a href="index.html#gallery" class="block text-slate-300 py-1 font-medium">Gallery</a>
+      <a href="index.html#contact" class="block text-slate-300 py-1 font-medium">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ================= ABOUT HERO ================= -->
+  <header class="py-20 px-6 max-w-5xl mx-auto text-center">
+    <span class="inline-block py-1 px-4 mb-4 text-xs font-semibold tracking-wider text-amber-400 uppercase bg-amber-500/10 border border-amber-500/20 rounded-full">
+      My Story & Purpose
+    </span>
+    <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-6">
+      Behind the Voice & Vision
+    </h1>
+    <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+      Learn about the heart behind Tubaste Yusuphu, why this platform was created, and the principles that guide every piece of content.
+    </p>
+  </header>
+
+  <!-- ================= DETAILED BIOGRAPHY ================= -->
+  <section class="pb-24 max-w-5xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <!-- Left: Portrait Photo Frame -->
+      <div class="lg:col-span-5 sticky top-28">
+        <div class="w-full aspect-[4/5] rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl relative">
+          <!-- PHOTO SPOT: Uses 'my-portrait.jpg' in the same folder -->
+          <img src="my-portrait.jpg" 
+               alt="Tubaste Yusuphu" 
+               class="w-full h-full object-cover"
+               onerror="this.src='https://placehold.co/600x750/1e293b/f59e0b?text=Tubaste+Yusuphu';">
+        </div>
+
+        <div class="mt-6 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider">Quick Highlights</h4>
+          <ul class="text-xs text-slate-400 space-y-2.5">
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check text-amber-400"></i> Mindset & Personal Development
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check text-amber-400"></i> Faith & Community Storytelling
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check text-amber-400"></i> Practical Guidance for Life Decisions
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check text-amber-400"></i> Event Documentation & Fellowship
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right: In-depth Story Content -->
+      <div class="lg:col-span-7 space-y-8 text-slate-300 leading-relaxed text-base">
+        
+        <div>
+          <h2 class="text-2xl font-bold text-white mb-4">Who I Am</h2>
+          <p class="mb-4">
+            Welcome! I'm <strong class="text-white">Tubaste Yusuphu</strong>. I am a creator, speaker, and community advocate driven by a desire to bring clarity, perspective, and encouragement to everyday life.
+          </p>
+          <p>
+            We live in a world with plenty of noise, but often very little direction. Through my videos and community work, I focus on cutting through distractions and focusing on what genuinely matters: personal responsibility, growth, discipline, and honoring our spiritual and communal roots.
+          </p>
+        </div>
+
+        <div class="border-t border-slate-800/80 pt-8">
+          <h2 class="text-2xl font-bold text-white mb-4">Why I Started Creating Content</h2>
+          <p class="mb-4">
+            Too many people wait for the "ideal moment" to make a change in their lives. They wait for conditions to be perfect, for someone else to step in, or for tomorrow to arrive. But one of my foundational beliefs is simple: 
+            <span class="text-amber-400 font-semibold italic">"Change starts right now."</span>
+          </p>
+          <p>
+            Whether addressing practical choices like navigating your college major and career decisions, or reflecting on the difference between what we want versus what we truly need, my goal is to give viewers clear, honest reminders that spark positive action.
+          </p>
+        </div>
+
+        <div class="border-t border-slate-800/80 pt-8">
+          <h2 class="text-2xl font-bold text-white mb-4">Community & Faith at the Center</h2>
+          <p class="mb-4">
+            Individual growth without community is incomplete. Documenting meaningful moments—such as ministry gatherings, baptisms, and fellowship in places like Denver, Colorado—is a core part of what I do.
+          </p>
+          <p>
+            These celebrations connect us back to faith, culture, and each other. They remind us that no matter where life takes us, we are stronger when we remain united and grounded in our values.
+          </p>
+        </div>
+
+        <!-- Beliefs Box -->
+        <div class="border-l-4 border-amber-500 bg-slate-900/80 p-6 rounded-r-2xl">
+          <h3 class="text-lg font-bold text-white mb-2">My Core Guiding Philosophy</h3>
+          <p class="text-sm text-slate-300 italic">
+            "Your background doesn't define your ceiling. What matters is the honesty you bring to your daily choices and your willingness to take the next step without waiting for permission."
+          </p>
+        </div>
+
+        <!-- CTA Callout -->
+        <div class="pt-4 flex flex-col sm:flex-row gap-4">
+          <a href="index.html#videos" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-3 rounded-xl transition text-center text-sm">
+            Watch My Videos
+          </a>
+          <a href="index.html#contact" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold px-6 py-3 rounded-xl transition text-center text-sm">
+            Get in Touch
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="border-t border-slate-900 py-12 text-center text-xs text-slate-500">
+    <div class="flex justify-center space-x-6 mb-6 text-slate-400">
+      <a href="https://www.youtube.com/channel/UCjREHM2Ieny7s2t3VzfFR4Q" target="_blank" class="hover:text-red-500 text-xl transition">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+    <p class="mb-2">© 2026 Tubaste Yusuphu. All rights reserved.</p>
+    <p class="text-slate-600">Empowering individuals through practical wisdom and community connection.</p>
+  </footer>
+
+  <!-- ================= SCRIPT ================= -->
+  <script>
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
 
 </body>
-
-
 </html>
