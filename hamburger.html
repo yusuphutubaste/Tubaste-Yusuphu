@@ -1,1 +1,138 @@
+<!-- ================= MOBILE HAMBURGER BUTTON & SLIDE-OUT DRAWER ================= -->
 
+<!-- 1. The Animated Hamburger Trigger Button -->
+<button id="hamburgerBtn" 
+        type="button" 
+        aria-label="Toggle navigation menu" 
+        aria-expanded="false" 
+        class="relative z-50 md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white focus:outline-none transition group">
+  <!-- Line 1 -->
+  <span class="line line-1 block w-5 h-0.5 bg-current rounded-full transition-all duration-300 origin-center mb-1"></span>
+  <!-- Line 2 -->
+  <span class="line line-2 block w-5 h-0.5 bg-current rounded-full transition-all duration-300 origin-center mb-1"></span>
+  <!-- Line 3 -->
+  <span class="line line-3 block w-5 h-0.5 bg-current rounded-full transition-all duration-300 origin-center"></span>
+</button>
+
+<!-- 2. Dark Overlay Backdrop -->
+<div id="mobileDrawerBackdrop" 
+     class="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out md:hidden">
+</div>
+
+<!-- 3. Slide-out Off-Canvas Drawer -->
+<aside id="mobileDrawer" 
+       aria-label="Mobile Navigation" 
+       class="fixed top-0 right-0 z-40 w-72 sm:w-80 h-full bg-[#0b0f17] border-l border-slate-800 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out md:hidden shadow-2xl">
+  
+  <div>
+    <!-- Drawer Header -->
+    <div class="flex items-center gap-3 pb-6 border-b border-slate-800/80">
+      <img src="profile.jpg" alt="Tubaste Yusuphu" 
+           class="w-10 h-10 rounded-full object-cover border border-amber-500/80"
+           onerror="this.src='https://ui-avatars.com/api/?name=Tubaste+Yusuphu&background=f59e0b&color=0b0f17&bold=true';">
+      <div>
+        <h4 class="text-sm font-bold text-white">Tubaste <span class="text-amber-500">Yusuphu</span></h4>
+        <p class="text-[11px] text-slate-400">Creator & Speaker</p>
+      </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="mt-6 flex flex-col space-y-1.5 text-sm font-medium">
+      <a href="index.html" class="drawer-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">
+        <i class="fas fa-house text-slate-500 w-4"></i> Home
+      </a>
+      <a href="about.html" class="drawer-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">
+        <i class="fas fa-user text-slate-500 w-4"></i> About Me
+      </a>
+      <a href="work.html" class="drawer-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">
+        <i class="fas fa-briefcase text-slate-500 w-4"></i> Work & Services
+      </a>
+      <a href="videos.html" class="drawer-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">
+        <i class="fas fa-film text-slate-500 w-4"></i> Videos & Shorts
+      </a>
+      <a href="community.html" class="drawer-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">
+        <i class="fas fa-church text-slate-500 w-4"></i> Community & Faith
+      </a>
+      <a href="index.html#contact" class="drawer-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-300 hover:text-amber-400 hover:bg-slate-900 transition">
+        <i class="fas fa-envelope text-slate-500 w-4"></i> Contact
+      </a>
+    </nav>
+  </div>
+
+  <!-- Drawer Footer Actions -->
+  <div class="space-y-4 pt-6 border-t border-slate-800/80">
+    <a href="https://www.youtube.com/channel/UCjREHM2Ieny7s2t3VzfFR4Q?sub_confirmation=1" target="_blank" 
+       class="w-full inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold text-xs py-3 rounded-xl transition shadow-lg shadow-red-600/25">
+      <i class="fab fa-youtube"></i> Subscribe on YouTube
+    </a>
+    
+    <div class="text-center text-[11px] text-slate-500">
+      © 2026 Tubaste Yusuphu
+    </div>
+  </div>
+
+</aside>
+
+<!-- CSS Animation Styling for the Hamburger Icon Transforming into 'X' -->
+<style>
+  #hamburgerBtn.is-active .line-1 {
+    transform: translateY(6px) rotate(45deg);
+  }
+  #hamburgerBtn.is-active .line-2 {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  #hamburgerBtn.is-active .line-3 {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+</style>
+
+<!-- Hamburger & Drawer Interaction Script -->
+<script>
+  (function() {
+    const btn = document.getElementById('hamburgerBtn');
+    const drawer = document.getElementById('mobileDrawer');
+    const backdrop = document.getElementById('mobileDrawerBackdrop');
+    const drawerLinks = document.querySelectorAll('.drawer-link');
+
+    if (!btn || !drawer || !backdrop) return;
+
+    function openMenu() {
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-expanded', 'true');
+      drawer.classList.remove('translate-x-full');
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = 'hidden'; // Lock background scroll
+    }
+
+    function closeMenu() {
+      btn.classList.remove('is-active');
+      btn.setAttribute('aria-expanded', 'false');
+      drawer.classList.add('translate-x-full');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = ''; // Restore background scroll
+    }
+
+    function toggleMenu() {
+      const isOpen = btn.classList.contains('is-active');
+      isOpen ? closeMenu() : openMenu();
+    }
+
+    // Event listeners
+    btn.addEventListener('click', toggleMenu);
+    backdrop.addEventListener('click', closeMenu);
+
+    // Close when clicking any menu link
+    drawerLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && btn.classList.contains('is-active')) {
+        closeMenu();
+      }
+    });
+  })();
+</script>
+<!-- ================= END MOBILE HAMBURGER COMPONENT ================= -->
