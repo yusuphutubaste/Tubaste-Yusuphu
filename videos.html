@@ -1,267 +1,288 @@
 <!DOCTYPE html>
-<html lang="en">
-
-
+<html lang="en" class="scroll-smooth">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videos & Media | Tubaste Yusuphu</title>
+  <meta name="description" content="Explore videos, motivational shorts, and community stories by Tubaste Yusuphu.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-
-<meta charset="UTF-8">
-
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
-<title>
-Videos | BUILD. GROW. LEAD.
-</title>
-
-
-
-<link rel="stylesheet" href="style.css">
-
-
-
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 </head>
-
-
-
-
-
-<body>
-
-
-
-
-
-<!-- NAVBAR -->
-
-
-<div id="navbar"></div>
-
-
-
-
-
-
-
-
-
-<!-- VIDEOS HERO -->
-
-
-<section class="hero">
-
-
-<h1>
-VIDEOS
-</h1>
-
-
-
-<h2>
-LEARN. CREATE. GROW.
-</h2>
-
-
-
-<p>
-
-Watch videos from Tubaste about ideas,
-growth, leadership, and connection.
-
-</p>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- FEATURED VIDEOS -->
-
-
-<section class="community-section">
-
-
-<h2>
-FEATURED VIDEOS
-</h2>
-
-
-
-
-
-
-<div class="video-grid">
-
-
-
-
-
-<div class="video-card">
-
-
-<iframe
-
-width="100%"
-
-height="315"
-
-src="https://www.youtube.com/embed/I8TBfGORBzs"
-
-title="Tubaste Video"
-
-allowfullscreen>
-
-</iframe>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="video-card">
-
-
-<iframe
-
-width="100%"
-
-height="315"
-
-src="https://www.youtube.com/embed/4iDibTcasmg"
-
-title="Tubaste Video"
-
-allowfullscreen>
-
-</iframe>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="video-card">
-
-
-<iframe
-
-width="100%"
-
-height="315"
-
-src="https://www.youtube.com/embed/6_OJxOvFpFs"
-
-title="Tubaste Video"
-
-allowfullscreen>
-
-</iframe>
-
-
-</div>
-
-
-
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- VIDEO MESSAGE -->
-
-
-<section class="community-cta">
-
-
-<h2>
-CREATE. LEARN. GROW.
-</h2>
-
-
-
-<p>
-
-Discover conversations, ideas,
-and experiences that help you move forward.
-
-</p>
-
-
-
-<a
-
-href="https://www.youtube.com/@TubasteYusuphu"
-
-target="_blank"
-
-class="subscribe-btn">
-
-
-SUBSCRIBE
-
-
-</a>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- FOOTER -->
-
-
-<div id="footer"></div>
-
-
-
-
-
-
-
-<script src="script.js"></script>
-
+<body class="bg-[#0b0f17] text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-black">
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[#0b0f17]/90 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="profile.jpg" alt="Tubaste Yusuphu" 
+             class="w-10 h-10 rounded-full object-cover border border-amber-500/80 group-hover:scale-105 transition duration-200"
+             onerror="this.src='https://ui-avatars.com/api/?name=Tubaste+Yusuphu&background=f59e0b&color=0b0f17&bold=true';">
+        <span class="text-xl font-extrabold tracking-tight text-white">
+          Tubaste <span class="text-amber-500">Yusuphu</span>
+        </span>
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+        <a href="index.html" class="hover:text-amber-400 transition">Home</a>
+        <a href="about.html" class="hover:text-amber-400 transition">About Me</a>
+        <a href="videos.html" class="text-amber-400 font-bold transition">Videos</a>
+        <a href="index.html#gallery" class="hover:text-amber-400 transition">Gallery</a>
+        <a href="index.html#contact" class="hover:text-amber-400 transition">Contact</a>
+      </div>
+
+      <!-- YouTube CTA Button -->
+      <div class="hidden md:block">
+        <a href="https://www.youtube.com/channel/UCjREHM2Ieny7s2t3VzfFR4Q?sub_confirmation=1" target="_blank" 
+           class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition shadow-lg shadow-red-600/25">
+          <i class="fab fa-youtube"></i> Subscribe
+        </a>
+      </div>
+
+      <!-- Mobile Button -->
+      <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white text-2xl focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden px-6 pt-3 pb-6 border-b border-slate-800 bg-[#0f172a] space-y-3">
+      <a href="index.html" class="block text-slate-300 py-1 font-medium">Home</a>
+      <a href="about.html" class="block text-slate-300 py-1 font-medium">About Me</a>
+      <a href="videos.html" class="block text-amber-400 py-1 font-bold">Videos</a>
+      <a href="index.html#gallery" class="block text-slate-300 py-1 font-medium">Gallery</a>
+      <a href="index.html#contact" class="block text-slate-300 py-1 font-medium">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ================= HEADER SECTION ================= -->
+  <header class="py-16 px-6 max-w-4xl mx-auto text-center">
+    <span class="inline-block py-1 px-4 mb-4 text-xs font-semibold tracking-wider text-amber-400 uppercase bg-amber-500/10 border border-amber-500/20 rounded-full">
+      Video Archive & Library
+    </span>
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+      Explore All Videos & Shorts
+    </h1>
+    <p class="text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
+      Watch uplifting messages on personal development, life perspective, and community celebrations.
+    </p>
+
+    <!-- Search & Filter Controls -->
+    <div class="mt-10 max-w-2xl mx-auto space-y-4">
+      <!-- Search Input -->
+      <div class="relative">
+        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+        <input type="text" id="videoSearch" onkeyup="searchVideos()" placeholder="Search video titles or topics..." 
+               class="w-full bg-slate-900 border border-slate-800 rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500">
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap justify-center gap-2 text-xs font-semibold pt-2">
+        <button onclick="filterVideos('all')" id="btn-all" class="px-4 py-2 rounded-lg bg-amber-500 text-black font-bold transition">All Content</button>
+        <button onclick="filterVideos('motivation')" id="btn-motivation" class="px-4 py-2 rounded-lg bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition">Motivation</button>
+        <button onclick="filterVideos('wisdom')" id="btn-wisdom" class="px-4 py-2 rounded-lg bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition">Life Wisdom</button>
+        <button onclick="filterVideos('community')" id="btn-community" class="px-4 py-2 rounded-lg bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition">Community & Faith</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= VIDEOS GRID ================= -->
+  <main class="max-w-7xl mx-auto px-6 pb-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="videoList">
+
+      <!-- Card 1: Change Starts Right Now -->
+      <div class="video-item motivation bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-slate-700 transition">
+        <div class="aspect-video w-full rounded-xl overflow-hidden mb-4 bg-black">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/txXEsO16c3c" title="Change Starts Right Now" allowfullscreen></iframe>
+        </div>
+        <div>
+          <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wide">Motivation • Shorts</span>
+          <h3 class="font-bold text-white text-base mt-1 mb-2 video-title">Change Starts Right Now</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Stop waiting for the perfect day. Real progress begins with the choices you make today.</p>
+        </div>
+      </div>
+
+      <!-- Card 2: The Secret Behind Your College Major -->
+      <div class="video-item wisdom bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-slate-700 transition">
+        <div class="aspect-video w-full rounded-xl overflow-hidden mb-4 bg-black">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/7931juMhl_M" title="The Secret Behind Your College Major" allowfullscreen></iframe>
+        </div>
+        <div>
+          <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wide">Life Wisdom • Shorts</span>
+          <h3 class="font-bold text-white text-base mt-1 mb-2 video-title">The Secret Behind Your College Major</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Understanding the practical realities behind education, career choices, and life paths.</p>
+        </div>
+      </div>
+
+      <!-- Card 3: Do You Want Water, Or Need It? -->
+      <div class="video-item wisdom bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-slate-700 transition">
+        <div class="aspect-video w-full rounded-xl overflow-hidden mb-4 bg-black">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/Uoq3DpTpefc" title="Do You Want Water, Or Need It?" allowfullscreen></iframe>
+        </div>
+        <div>
+          <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wide">Life Wisdom • Shorts</span>
+          <h3 class="font-bold text-white text-base mt-1 mb-2 video-title">Do You Want Water, Or Need It?</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">A thought-provoking reflection on priorities, wants vs. needs, and appreciating essentials.</p>
+        </div>
+      </div>
+
+      <!-- Card 4: EVERY JOURNEY -->
+      <div class="video-item motivation bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-slate-700 transition">
+        <div class="aspect-video w-full rounded-xl overflow-hidden mb-4 bg-black">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/XZYC6mrQvPk" title="EVERY JOURNEY" allowfullscreen></iframe>
+        </div>
+        <div>
+          <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wide">Motivation • Shorts</span>
+          <h3 class="font-bold text-white text-base mt-1 mb-2 video-title">EVERY JOURNEY</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Learn today and do not wait. Every meaningful journey takes discipline and courage.</p>
+        </div>
+      </div>
+
+      <!-- Card 5: Come to Jesus Ministry: Ubatizo -->
+      <div class="video-item community bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-slate-700 transition">
+        <div class="aspect-video w-full rounded-xl overflow-hidden mb-4 bg-black">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/JVQM-QVRKV8" title="COME TO JESUS MINISTRY, UBATIZO IN DENVER CO" allowfullscreen></iframe>
+        </div>
+        <div>
+          <span class="text-[11px] font-bold text-sky-400 uppercase tracking-wide">Community & Faith • Denver, CO</span>
+          <h3 class="font-bold text-white text-base mt-1 mb-2 video-title">COME TO JESUS MINISTRY: UBATIZO IN DENVER CO</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Celebrating baptism, faith renewals, and community brotherhood in Denver, Colorado.</p>
+        </div>
+      </div>
+
+      <!-- Card 6: Bokonda Bwa Marceline -->
+      <div class="video-item community bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-slate-700 transition">
+        <div class="aspect-video w-full rounded-xl overflow-hidden mb-4 bg-black">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/A9UonjuewkM" title="BOKONDA BWA MARCELINE" allowfullscreen></iframe>
+        </div>
+        <div>
+          <span class="text-[11px] font-bold text-sky-400 uppercase tracking-wide">Community & Celebration</span>
+          <h3 class="font-bold text-white text-base mt-1 mb-2 video-title">BOKONDA BWA MARCELINE</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Full-length celebration capturing cherished family and cultural community moments.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Empty State (Shown if search returns no matches) -->
+    <div id="noResults" class="hidden text-center py-16">
+      <i class="fas fa-video-slash text-4xl text-slate-600 mb-3"></i>
+      <p class="text-slate-400 text-base">No videos matched your search.</p>
+      <button onclick="clearSearch()" class="mt-3 text-xs text-amber-400 hover:underline">Clear search filter</button>
+    </div>
+
+    <!-- YouTube Call-to-Action Banner -->
+    <div class="mt-16 bg-gradient-to-r from-red-600/10 via-slate-900 to-red-600/10 border border-red-600/30 rounded-3xl p-8 md:p-10 text-center">
+      <h3 class="text-2xl font-bold text-white mb-2">Want to see more fresh uploads?</h3>
+      <p class="text-slate-400 text-sm max-w-lg mx-auto mb-6">
+        Subscribe directly to Tubaste Yusuphu on YouTube to get notified the second new Shorts or long-form videos release.
+      </p>
+      <a href="https://www.youtube.com/channel/UCjREHM2Ieny7s2t3VzfFR4Q?sub_confirmation=1" target="_blank" 
+         class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold px-7 py-3 rounded-full transition shadow-lg shadow-red-600/30 text-sm">
+        <i class="fab fa-youtube"></i> Subscribe to Channel
+      </a>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="border-t border-slate-900 py-12 text-center text-xs text-slate-500">
+    <div class="flex justify-center space-x-6 mb-6 text-slate-400">
+      <a href="https://www.youtube.com/channel/UCjREHM2Ieny7s2t3VzfFR4Q" target="_blank" class="hover:text-red-500 text-xl transition">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+    <p class="mb-2">© 2026 Tubaste Yusuphu. All rights reserved.</p>
+    <p class="text-slate-600">Empowering individuals through practical wisdom and community connection.</p>
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    // Mobile navigation toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    let currentCategory = 'all';
+
+    // Category filter function
+    function filterVideos(category) {
+      currentCategory = category;
+      const buttons = ['all', 'motivation', 'wisdom', 'community'];
+      
+      buttons.forEach(btnKey => {
+        const btn = document.getElementById('btn-' + btnKey);
+        if (btnKey === category) {
+          btn.className = 'px-4 py-2 rounded-lg bg-amber-500 text-black font-bold transition';
+        } else {
+          btn.className = 'px-4 py-2 rounded-lg bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition';
+        }
+      });
+
+      applyFilters();
+    }
+
+    // Keyword search function
+    function searchVideos() {
+      applyFilters();
+    }
+
+    // Combined filtering logic
+    function applyFilters() {
+      const query = document.getElementById('videoSearch').value.toLowerCase();
+      const items = document.querySelectorAll('.video-item');
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        const title = item.querySelector('.video-title').textContent.toLowerCase();
+        const matchesCategory = (currentCategory === 'all' || item.classList.contains(currentCategory));
+        const matchesQuery = title.includes(query);
+
+        if (matchesCategory && matchesQuery) {
+          item.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+
+      const noResults = document.getElementById('noResults');
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+    }
+
+    function clearSearch() {
+      document.getElementById('videoSearch').value = '';
+      filterVideos('all');
+    }
+  </script>
 
 </body>
-
-
 </html>
