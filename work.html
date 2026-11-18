@@ -1,268 +1,323 @@
 <!DOCTYPE html>
-<html lang="en">
-
-
+<html lang="en" class="scroll-smooth">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work & Services | Tubaste Yusuphu</title>
+  <meta name="description" content="Explore speaking engagements, creative services, and community work with Tubaste Yusuphu.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-
-<meta charset="UTF-8">
-
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
-<title>
-Work With Tubaste | BUILD. GROW. LEAD.
-</title>
-
-
-
-<link rel="stylesheet" href="style.css">
-
-
-
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 </head>
-
-
-
-
-
-<body>
-
-
-
-
-
-<!-- NAVBAR -->
-
-
-<div id="navbar"></div>
-
-
-
-
-
-
-
-
-
-<!-- WORK HERO -->
-
-
-<section class="hero">
-
-
-<h1>
-WORK WITH TUBASTE
-</h1>
-
-
-
-<h2>
-BUILD. CREATE. CONNECT.
-</h2>
-
-
-
-<p>
-
-Collaborate with Tubaste on creative projects,
-partnerships, interviews, and ideas that inspire
-growth and create impact.
-
-</p>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- WORK OPTIONS -->
-
-
-<section class="community-section">
-
-
-
-<h2>
-LET'S BUILD TOGETHER
-</h2>
-
-
-
-
-
-
-<div class="card-grid">
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-🚀 Collaborations
-</h3>
-
-
-
-<p>
-
-Create videos, conversations,
-and projects with the
-BUILD. GROW. LEAD. community.
-
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-🤝 Partnerships
-</h3>
-
-
-
-<p>
-
-Work together on creative ideas,
-brands, and meaningful projects.
-
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-🎤 Interviews & Speaking
-</h3>
-
-
-
-<p>
-
-Share experiences, knowledge,
-and stories with the community.
-
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- START CONVERSATION -->
-
-
-<section class="community-cta">
-
-
-<h2>
-START A CONVERSATION
-</h2>
-
-
-
-<p>
-
-Have an idea, project, or opportunity?
-
-Let's create something meaningful together.
-
-</p>
-
-
-
-
-<a href="contact.html"
-class="subscribe-btn">
-
-
-CONTACT TUBASTE
-
-
-</a>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- FOOTER -->
-
-
-<div id="footer"></div>
-
-
-
-
-
-
-
-<script src="script.js"></script>
-
+<body class="bg-[#0b0f17] text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-black">
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[#0b0f17]/90 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      
+      <!-- Brand & Avatar -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="profile.jpg" alt="Tubaste Yusuphu" 
+             class="w-10 h-10 rounded-full object-cover border border-amber-500/80 group-hover:scale-105 transition duration-200"
+             onerror="this.src='https://ui-avatars.com/api/?name=Tubaste+Yusuphu&background=f59e0b&color=0b0f17&bold=true';">
+        <span class="text-xl font-extrabold tracking-tight text-white">
+          Tubaste <span class="text-amber-500">Yusuphu</span>
+        </span>
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+        <a href="index.html" class="hover:text-amber-400 transition">Home</a>
+        <a href="about.html" class="hover:text-amber-400 transition">About</a>
+        <a href="work.html" class="text-amber-400 font-bold transition">Work</a>
+        <a href="videos.html" class="hover:text-amber-400 transition">Videos</a>
+        <a href="index.html#contact" class="hover:text-amber-400 transition">Contact</a>
+      </div>
+
+      <!-- YouTube CTA Button -->
+      <div class="hidden md:block">
+        <a href="https://www.youtube.com/channel/UCjREHM2Ieny7s2t3VzfFR4Q?sub_confirmation=1" target="_blank" 
+           class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition shadow-lg shadow-red-600/25">
+          <i class="fab fa-youtube"></i> Subscribe
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white text-2xl focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden px-6 pt-3 pb-6 border-b border-slate-800 bg-[#0f172a] space-y-3">
+      <a href="index.html" class="block text-slate-300 py-1 font-medium">Home</a>
+      <a href="about.html" class="block text-slate-300 py-1 font-medium">About</a>
+      <a href="work.html" class="block text-amber-400 py-1 font-bold">Work</a>
+      <a href="videos.html" class="block text-slate-300 py-1 font-medium">Videos</a>
+      <a href="index.html#contact" class="block text-slate-300 py-1 font-medium">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ================= HERO SECTION ================= -->
+  <header class="py-20 px-6 max-w-4xl mx-auto text-center">
+    <span class="inline-block py-1 px-4 mb-4 text-xs font-semibold tracking-wider text-amber-400 uppercase bg-amber-500/10 border border-amber-500/20 rounded-full">
+      Portfolio & Collaborations
+    </span>
+    <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-6">
+      What I Do & How We Can Work Together
+    </h1>
+    <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+      From public speaking and community event documentation to purposeful digital storytelling, here is how I bring value to audiences and organizations.
+    </p>
+    <div class="mt-8 flex justify-center gap-4">
+      <a href="#services" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-7 py-3 rounded-xl transition text-sm">
+        View Services
+      </a>
+      <a href="#booking" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold px-7 py-3 rounded-xl transition text-sm">
+        Book an Inquiry
+      </a>
+    </div>
+  </header>
+
+  <!-- ================= SERVICES OFFERED ================= -->
+  <section id="services" class="py-20 border-t border-slate-900 bg-slate-900/20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-xl mx-auto mb-16">
+        <h2 class="text-xs uppercase tracking-widest text-amber-400 font-bold mb-2">Core Areas</h2>
+        <h3 class="text-3xl font-extrabold text-white">Areas of Focus</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Service 1 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-7 flex flex-col justify-between hover:border-slate-700 transition">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-6">
+              <i class="fas fa-microphone"></i>
+            </div>
+            <h4 class="text-xl font-bold text-white mb-3">Speaking & Workshops</h4>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              Delivering honest, engaging talks on mindset shifts, overcoming hesitation, setting real priorities, and taking accountability for personal growth.
+            </p>
+          </div>
+          <ul class="text-xs text-slate-400 space-y-2 border-t border-slate-800 pt-4">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-amber-400"></i> Youth & Student Seminars</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-amber-400"></i> Community Gatherings</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-amber-400"></i> Faith & Ministry Events</li>
+          </ul>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-7 flex flex-col justify-between hover:border-slate-700 transition">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl mb-6">
+              <i class="fas fa-video"></i>
+            </div>
+            <h4 class="text-xl font-bold text-white mb-3">Community Storytelling</h4>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              Documenting and highlighting vital community events, baptisms, cultural milestones, and ceremonies with reverence and quality.
+            </p>
+          </div>
+          <ul class="text-xs text-slate-400 space-y-2 border-t border-slate-800 pt-4">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-400"></i> Event Documentation</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-400"></i> Fellowship Spotlights</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-400"></i> Cultural Preservation</li>
+          </ul>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-7 flex flex-col justify-between hover:border-slate-700 transition">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center text-xl mb-6">
+              <i class="fas fa-bullhorn"></i>
+            </div>
+            <h4 class="text-xl font-bold text-white mb-3">Content Collaborations</h4>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              Partnering with purpose-driven creators, brands, and initiatives that align with values of resilience, discipline, and community betterment.
+            </p>
+          </div>
+          <ul class="text-xs text-slate-400 space-y-2 border-t border-slate-800 pt-4">
+            <li class="flex items-center gap-2"><i class="fas fa-check text-red-400"></i> Digital Shorts Campaigns</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-red-400"></i> Co-created Interviews</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check text-red-400"></i> Mission Alignment</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURED PROJECTS & HIGHLIGHTS ================= -->
+  <section class="py-24 border-t border-slate-900 max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-xl mx-auto mb-16">
+      <h2 class="text-xs uppercase tracking-widest text-amber-400 font-bold mb-2">Featured Projects</h2>
+      <h3 class="text-3xl font-extrabold text-white">Highlighting Past Work</h3>
+    </div>
+
+    <div class="space-y-12">
+      
+      <!-- Project 1 -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-6 aspect-video rounded-2xl overflow-hidden bg-black">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/JVQM-QVRKV8" title="Come to Jesus Ministry" allowfullscreen></iframe>
+        </div>
+        <div class="lg:col-span-6 space-y-4">
+          <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Faith & Community Documentary</span>
+          <h4 class="text-2xl font-bold text-white">Come to Jesus Ministry: Denver, CO</h4>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Full-coverage video production documenting the baptism service and gathering in Denver, Colorado. Designed to honor the sacredness of the occasion while making it accessible to family and congregation members across locations.
+          </p>
+          <div class="pt-2">
+            <span class="inline-block bg-slate-800 text-slate-300 text-xs px-3 py-1 rounded-md">Live Event Capture</span>
+            <span class="inline-block bg-slate-800 text-slate-300 text-xs px-3 py-1 rounded-md ml-1">Community Spirit</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-6 aspect-video rounded-2xl overflow-hidden bg-black">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/txXEsO16c3c" title="Change Starts Right Now" allowfullscreen></iframe>
+        </div>
+        <div class="lg:col-span-6 space-y-4">
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Bite-Sized Motivation Campaign</span>
+          <h4 class="text-2xl font-bold text-white">Daily Mindset & Life Wisdom Shorts</h4>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            A focused series of rapid, high-impact messages—including "Change Starts Right Now" and "The Secret Behind Your College Major"—delivering concise truths to encourage action without delay.
+          </p>
+          <div class="pt-2">
+            <span class="inline-block bg-slate-800 text-slate-300 text-xs px-3 py-1 rounded-md">Short-form Storytelling</span>
+            <span class="inline-block bg-slate-800 text-slate-300 text-xs px-3 py-1 rounded-md ml-1">Personal Growth</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= COLLABORATION PROCESS ================= -->
+  <section class="py-20 border-t border-slate-900 bg-slate-900/30">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center max-w-xl mx-auto mb-16">
+        <h2 class="text-xs uppercase tracking-widest text-amber-400 font-bold mb-2">How We Work</h2>
+        <h3 class="text-3xl font-extrabold text-white">The Collaboration Process</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+        <div class="p-6 bg-slate-900 border border-slate-800 rounded-2xl">
+          <span class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 font-bold inline-flex items-center justify-center text-sm mb-3">1</span>
+          <h5 class="text-white font-bold text-base mb-1">Inquiry</h5>
+          <p class="text-slate-400 text-xs">Reach out with your event, theme, or proposal details.</p>
+        </div>
+        <div class="p-6 bg-slate-900 border border-slate-800 rounded-2xl">
+          <span class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 font-bold inline-flex items-center justify-center text-sm mb-3">2</span>
+          <h5 class="text-white font-bold text-base mb-1">Alignment</h5>
+          <p class="text-slate-400 text-xs">We discuss goals, dates, tone, and audience expectations.</p>
+        </div>
+        <div class="p-6 bg-slate-900 border border-slate-800 rounded-2xl">
+          <span class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 font-bold inline-flex items-center justify-center text-sm mb-3">3</span>
+          <h5 class="text-white font-bold text-base mb-1">Execution</h5>
+          <p class="text-slate-400 text-xs">Speaking on-site, recording, or delivering media content.</p>
+        </div>
+        <div class="p-6 bg-slate-900 border border-slate-800 rounded-2xl">
+          <span class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 font-bold inline-flex items-center justify-center text-sm mb-3">4</span>
+          <h5 class="text-white font-bold text-base mb-1">Impact</h5>
+          <p class="text-slate-400 text-xs">Sharing the story and inspiring lasting community impact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INQUIRY / BOOKING FORM ================= -->
+  <section id="booking" class="py-24 border-t border-slate-900 max-w-3xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-xs uppercase tracking-widest text-amber-400 font-bold mb-2">Get Started</h2>
+      <h3 class="text-3xl font-extrabold text-white">Book an Inquiry or Speaking Request</h3>
+      <p class="text-slate-400 text-sm mt-2">Share details about your upcoming event, project, or collaboration.</p>
+    </div>
+
+    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Booking request sent successfully!');">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-1.5">Contact Name / Organization</label>
+          <input type="text" required placeholder="Full name or org name" 
+                 class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-1.5">Email Address</label>
+          <input type="email" required placeholder="name@organization.com" 
+                 class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-1.5">Work Type</label>
+          <select class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
+            <option value="speaking">Speaking Engagement</option>
+            <option value="event">Event Video Coverage</option>
+            <option value="collab">Content Partnership</option>
+            <option value="other">Other Inquiry</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-1.5">Proposed Date (if applicable)</label>
+          <input type="date" 
+                 class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-300 focus:outline-none focus:border-amber-500">
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold text-slate-400 mb-1.5">Project or Event Details</label>
+        <textarea rows="4" required placeholder="Tell me about your audience, event goals, and what you're looking to accomplish..." 
+                  class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500"></textarea>
+      </div>
+
+      <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3.5 rounded-xl transition duration-200 text-sm shadow-lg shadow-amber-500/20">
+        Submit Booking Request
+      </button>
+    </form>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="border-t border-slate-900 py-12 text-center text-xs text-slate-500">
+    <div class="flex justify-center space-x-6 mb-6 text-slate-400">
+      <a href="https://www.youtube.com/channel/UCjREHM2Ieny7s2t3VzfFR4Q" target="_blank" class="hover:text-red-500 text-xl transition">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+    <p class="mb-2">© 2026 Tubaste Yusuphu. All rights reserved.</p>
+    <p class="text-slate-600">Empowering individuals through practical wisdom and community connection.</p>
+  </footer>
+
+  <!-- ================= SCRIPT ================= -->
+  <script>
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
 
 </body>
-
-
 </html>
