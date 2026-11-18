@@ -1,0 +1,5 @@
+// Shared palette, form delivery, and language support for Tubaste Yusuphu pages.
+
+(() => {
+  'ngInject';
+})();
