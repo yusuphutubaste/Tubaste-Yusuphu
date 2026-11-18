@@ -1,28 +1,74 @@
-// Shared palette, form mail handling, and language controls.
+// Shared command palette and static form handling. Language UI is owned by language.js.
 (() => {
   const EMAIL = 'yusuphutubasteebrainy@gmail.com';
 
   function injectPalette() {
     if (document.getElementById('paletteBackdrop')) return;
-    const div = document.createElement('div');
-    div.innerHTML = `<div id="paletteBackdrop" class="fixed inset-0 z-[70] bg-black/70 backdrop-blur-sm hidden items-start justify-center pt-20 px-4" role="dialog" aria-modal="true" aria-label="Command palette"><div id="paletteModal" class="w-full max-w-xl bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden"><div class="flex items-center px-4 border-b border-slate-800"><i class="fas fa-search text-slate-500 mr-3"></i><input id="paletteSearch" type="search" class="w-full bg-transparent py-4 text-sm text-white outline-none" placeholder="Search pages, videos, or actions" aria-label="Search"><button id="paletteClose" type="button" class="text-[10px] bg-slate-800 border border-slate-700 text-slate-400 px-2 py-1 rounded">ESC</button></div><div class="max-h-80 overflow-y-auto p-3 space-y-4"><div class="command-group"><p class="text-[10px] uppercase font-bold text-slate-500 px-3">Navigation</p><a href="index.html" class="command-item block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400">Home</a><a href="about.html" class="command-item block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400">About Me</a><a href="work.html" class="command-item block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400">Work & Services</a><a href="videos.html" class="command-item block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400">Video Library</a><a href="community.html" class="command-item block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400">Community</a><a href="contact.html" class="command-item block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400">Contact</a></div><div class="command-group"><p class="text-[10px] uppercase font-bold text-slate-500 px-3">Popular Videos</p><a href="https://www.youtube.com/watch?v=txXEsO16c3c" target="_blank" rel="noopener" class="command-item block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400">Change Starts Right Now</a><a href="https://www.youtube.com/watch?v=7931juMhl_M" target="_blank" rel="noopener" class="command-item block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400">The Secret Behind Your College Major</a><a href="https://www.youtube.com/watch?v=JVQM-QVRKV8" target="_blank" rel="noopener" class="command-item block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400">Come to Jesus Ministry</a></div><div class="command-group"><p class="text-[10px] uppercase font-bold text-slate-500 px-3">Actions</p><a href="https://www.youtube.com/channel/UCjREHM2Ieny7s2t3VzfFR4Q?sub_confirmation=1" target="_blank" rel="noopener" class="command-item block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400">Subscribe on YouTube</a><a href="work.html#booking" class="command-item block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-amber-400">Book an Event</a></div></div><div id="paletteEmpty" class="hidden text-center py-8 text-slate-400">No matches found</div></div></div>`;
-    document.body.appendChild(div.firstElementChild);
-    const backdrop=document.getElementById('paletteBackdrop'),input=document.getElementById('paletteSearch');
-    window.openPalette=()=>{backdrop.classList.remove('hidden');backdrop.classList.add('flex');input.value='';filter('');setTimeout(()=>input.focus(),50)};
-    window.closePalette=()=>{backdrop.classList.add('hidden');backdrop.classList.remove('flex')};
-    function filter(q){q=q.toLowerCase().trim();let n=0;document.querySelectorAll('#paletteBackdrop .command-item').forEach(item=>{const show=item.textContent.toLowerCase().includes(q);item.classList.toggle('hidden',!show);if(show)n++});document.querySelectorAll('#paletteBackdrop .command-group').forEach(g=>g.style.display=g.querySelector('.command-item:not(.hidden)')?'block':'none');document.getElementById('paletteEmpty').classList.toggle('hidden',n>0)}
-    input.addEventListener('input',e=>filter(e.target.value));document.getElementById('paletteClose').addEventListener('click',closePalette);backdrop.addEventListener('click',e=>{if(e.target===backdrop)closePalette()});
-    document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventEventDefault=0;e.preventDefault();backdrop.classList.contains('hidden')?openPalette():closePalette()}if(e.key==='Escape'&&!backdrop.classList.contains('hidden'))closePalette()});
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = `
+      <div id="paletteBackdrop" class="fixed inset-0 z-[70] hidden items-start justify-center bg-black/70 px-4 pt-20 backdrop-blur-sm sm:px-6" role="dialog" aria-modal="true" aria-label="Command palette">
+        <div class="flex w-full max-w-xl flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl">
+          <div class="flex items-center border-b border-slate-800 bg-slate-950/60 px-4">
+            <i class="fas fa-search mr-3 text-sm text-slate-500" aria-hidden="true"></i>
+            <input id="paletteSearch" type="search" placeholder="Type a page, video, or action..." aria-label="Search commands" class="w-full bg-transparent py-4 text-sm text-white placeholder-slate-500 focus:outline-none">
+            <button type="button" id="paletteClose" class="rounded border border-slate-700 bg-slate-800 px-2 py-1 font-mono text-[10px] text-slate-400" aria-label="Close palette">ESC</button>
+          </div>
+          <div id="commandList" class="max-h-80 space-y-4 overflow-y-auto p-3">
+            <div class="command-group"><p class="mb-1 px-3 text-[10px] font-bold uppercase tracking-wider text-slate-500">Navigation</p><div class="space-y-1">
+              <a href="index.html" class="command-item block rounded-xl px-3 py-2 text-sm text-slate-300 hover:bg-slate-800">Home</a>
+              <a href="about.html" class="command-item block rounded-xl px-3 py-2 text-sm text-slate-300 hover:bg-slate-800">About Me</a>
+              <a href="work.html" class="command-item block rounded-xl px-3 py-2 text-sm text-slate-300 hover:bg-slate-800">Work & Services</a>
+              <a href="videos.html" class="command-item block rounded-xl px-3 py-2 text-sm text-slate-300 hover:bg-slate-800">Video Library</a>
+              <a href="community.html" class="command-item block rounded-xl px-3 py-2 text-sm text-slate-300 hover:bg-slate-800">Community</a>
+              <a href="contact.html" class="command-item block rounded-xl px-3 py-2 text-sm text-slate-300 hover:bg-slate-800">Contact</a>
+            </div></div>
+            <div class="command-group"><p class="mb-1 px-3 text-[10px] font-bold uppercase tracking-wider text-slate-500">Actions</p><div class="space-y-1">
+              <a href="https://www.youtube.com/channel/UCjREHM2Ieny7s2t3VzfFR4Q?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="command-item block rounded-xl px-3 py-2 text-sm text-slate-300 hover:bg-slate-800">Subscribe on YouTube</a>
+              <a href="work.html#booking" class="command-item block rounded-xl px-3 py-2 text-sm text-slate-300 hover:bg-slate-800">Book for an Event / Message</a>
+            </div></div>
+          </div>
+          <div id="paletteEmpty" class="hidden py-8 text-center text-sm text-slate-400">No matches found.</div>
+          <div class="border-t border-slate-800 bg-slate-950/70 px-4 py-2.5 text-[11px] text-slate-500">Press Esc to close</div>
+        </div>
+      </div>`;
+    document.body.appendChild(wrapper.firstElementChild);
+
+    const backdrop = document.getElementById('paletteBackdrop');
+    const input = document.getElementById('paletteSearch');
+    function filter(query) {
+      const q = query.toLowerCase().trim();
+      let count = 0;
+      backdrop.querySelectorAll('.command-item').forEach(item => {
+        const visible = item.textContent.toLowerCase().includes(q);
+        item.classList.toggle('hidden', !visible);
+        if (visible) count++;
+      });
+      backdrop.querySelectorAll('.command-group').forEach(group => {
+        group.style.display = group.querySelector('.command-item:not(.hidden)') ? '' : 'none';
+      });
+      document.getElementById('paletteEmpty').classList.toggle('hidden', count > 0);
+    }
+    window.openPalette = () => { backdrop.classList.remove('hidden'); backdrop.classList.add('flex'); input.value = ''; filter(''); input.focus(); };
+    window.closePalette = () => { backdrop.classList.add('hidden'); backdrop.classList.remove('flex'); input.blur(); };
+    input.addEventListener('input', () => filter(input.value));
+    document.getElementById('paletteClose').addEventListener('click', window.closePalette);
+    backdrop.addEventListener('click', event => { if (event.target === backdrop) window.closePalette(); });
+    document.addEventListener('keydown', event => {
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); backdrop.classList.contains('hidden') ? window.openPalette() : window.closePalette(); }
+      if (event.key === 'Escape' && !backdrop.classList.contains('hidden')) window.closePalette();
+    });
   }
 
-  function initForms(){document.querySelectorAll('form[data-mailto]').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const fd=new FormData(form),lines=[];fd.forEach((v,k)=>lines.push(`${k}: ${String(v).trim()}`));const subject=encodeURIComponent(fd.get('subject')||fd.get('inquiryType')||'Website inquiry');const body=encodeURIComponent(lines.join('\n\n'));window.location.href=`mailto:${EMAIL}?subject=${subject}&body=${body}`}))}
+  function initMailtoForms() {
+    document.querySelectorAll('form[data-mailto]').forEach(form => form.addEventListener('submit', event => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      const data = new FormData(form);
+      const subject = encodeURIComponent(data.get('subject') || data.get('inquiryType') || 'Website inquiry');
+      const body = encodeURIComponent(Array.from(data.entries()).map(([key, value]) => `${key}: ${String(value).trim()}`).join('\n\n'));
+      window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+    }));
+  }
 
-  const translations={
-    fr:{'Home':'Accueil','About':'À propos','About Me':'À propos','Mission':'Mission','Videos':'Vidéos','Gallery':'Galerie','FAQ':'FAQ','Contact':'Contact','Work':'Travail','Community':'Communauté','Subscribe':'S’abonner','Search':'Rechercher','Watch Content':'Voir le contenu','Learn My Story':'Découvrir mon histoire','Send a Message':'Envoyer un message','Submit Inquiry':'Envoyer la demande','Full Name':'Nom complet','Email Address':'Adresse e-mail','Your Message':'Votre message','Send Message':'Envoyer le message','Get in Touch':'Nous contacter'},
-    sw:{'Home':'Nyumbani','About':'Kuhusu','About Me':'Kuhusu','Mission':'Dhamira','Videos':'Video','Gallery':'Matunzio','FAQ':'Maswali','Contact':'Wasiliana','Work':'Kazi','Community':'Jamii','Subscribe':'Jiunge','Search':'Tafuta','Watch Content':'Tazama Maudhui','Learn My Story':'Soma Hadithi Yangu','Send a Message':'Tuma Ujumbe','Submit Inquiry':'Tuma Ombi','Full Name':'Jina kamili','Email Address':'Anwani ya barua pepe','Your Message':'Ujumbe wako','Send Message':'Tuma ujumbe','Get in Touch':'Wasiliana Nasi'}
-  };
-  function applyLanguage(lang){document.documentElement.lang=lang;const map=translations[lang]||{};document.querySelectorAll('a,button,label,h1,h2,h3,h4,h5,option').forEach(el=>{if(el.closest('#paletteBackdrop')||el.children.length)return;const text=el.textContent.trim();if(map[text])el.textContent=map[text]});const sel=document.getElementById('languageSwitcher');if(sel)sel.value=lang;localStorage.setItem('tubaste_language',lang)}
-  function injectLanguage(){if(document.getElementById('languageSwitcher'))return;const box=document.createElement('div');box.style.cssText='position:fixed;right:16px;bottom:16px;z-index:55;background:#0f172a;border:1px solid #334155;border-radius:999px;padding:8px 12px';box.innerHTML=`<label for="languageSwitcher" class="sr-only">Language</label><select id="languageSwitcher" aria-label="Language" style="background:transparent;color:#e2e8f0;border:0"><option value="en">English</option><option value="fr">Français</option><option value="sw">Kiswahili</option></select>`;document.body.appendChild(box);document.getElementById('languageSwitcher').addEventListener('change',e=>applyLanguage(e.target.value))}
-
-  document.addEventListener('DOMContentLoaded',()=>{injectPalette();initForms();injectLanguage();applyLanguage(localStorage.getItem('tubaste_language')||'en')});
+  document.addEventListener('DOMContentLoaded', () => { injectPalette(); initMailtoForms(); });
 })();
