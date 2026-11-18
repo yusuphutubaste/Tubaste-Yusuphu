@@ -1,2 +1,124 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Command Palette | Tubaste Yusuphu</title><script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></head><body class="flex min-h-screen items-center justify-center bg-[#0b0f17] p-6 text-slate-100"><main class="text-center"><p class="text-xs font-bold uppercase tracking-widest text-amber-400">Quick Navigation</p><h1 class="mt-4 text-3xl font-extrabold">Press <kbd class="rounded-lg border border-slate-700 bg-slate-800 px-2 py-1 text-amber-400">Ctrl</kbd> + <kbd class="rounded-lg border border-slate-700 bg-slate-800 px-2 py-1 text-amber-400">K</kbd></h1><button type="button" onclick="openPalette()" class="mt-8 rounded-xl border border-slate-700 bg-slate-900 px-5 py-3 text-sm"><i class="fas fa-search mr-2 text-amber-400"></i>Search site commands</button></main><script src="site.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Command Palette | Tubaste Yusuphu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] } } } };
+  </script>
+</head>
+<body class="min-h-screen bg-[#0b0f17] text-slate-100 font-sans antialiased flex items-center justify-center p-6">
+  <main class="text-center">
+    <p class="text-xs uppercase tracking-widest text-amber-400 font-bold">Quick Navigation</p>
+    <h1 class="mt-4 text-3xl font-extrabold text-white">
+      Press <kbd class="px-2.5 py-1 rounded-lg border border-slate-700 bg-slate-800 text-amber-400 text-sm">Ctrl</kbd>
+      + <kbd class="px-2.5 py-1 rounded-lg border border-slate-700 bg-slate-800 text-amber-400 text-sm">K</kbd>
+    </h1>
+    <p class="mx-auto mt-4 max-w-md text-sm text-slate-400">Or use the search button to open the quick-action palette.</p>
+    <button type="button" onclick="openPalette()" class="mt-8 inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900 px-5 py-3 text-sm text-slate-300 transition hover:border-slate-600 hover:text-white">
+      <i class="fas fa-search text-xs text-amber-400"></i>
+      <span>Search site commands...</span>
+      <span class="ml-2 rounded bg-slate-800 px-2 py-0.5 font-mono text-[11px] text-slate-400">⌘K</span>
+    </button>
+  </main>
+
+  <div id="paletteBackdrop" class="fixed inset-0 z-50 hidden items-start justify-center bg-black/70 px-4 pt-20 backdrop-blur-sm sm:px-6" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div id="paletteModal" class="flex w-full max-w-xl flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl">
+      <div class="flex items-center border-b border-slate-800 bg-slate-950/60 px-4">
+        <i class="fas fa-search mr-3 text-sm text-slate-500"></i>
+        <input id="paletteSearch" type="search" onkeyup="filterCommands(this.value)" placeholder="Type a page, video, or action..." aria-label="Search commands" class="w-full bg-transparent py-4 text-sm text-white placeholder-slate-500 outline-none">
+        <button id="paletteClose" type="button" onclick="closePalette()" class="rounded border border-slate-700 bg-slate-800 px-2 py-1 font-mono text-[10px] text-slate-400" aria-label="Close command palette">ESC</button>
+      </div>
+
+      <div id="commandList" class="max-h-80 space-y-4 overflow-y-auto p-3">
+        <div class="command-group">
+          <p class="mb-1 px-3 text-[10px] font-bold uppercase tracking-wider text-slate-500">Navigation</p>
+          <div class="space-y-1">
+            <a href="index.html" class="command-item flex items-center justify-between rounded-xl px-3 py-2 text-sm text-slate-300 transition hover:bg-slate-800 hover:text-amber-400"><span class="flex items-center gap-3"><i class="fas fa-house w-4 text-slate-400"></i>Home</span><span class="text-xs text-slate-500">Go to homepage</span></a>
+            <a href="about.html" class="command-item flex items-center justify-between rounded-xl px-3 py-2 text-sm text-slate-300 transition hover:bg-slate-800 hover:text-amber-400"><span class="flex items-center gap-3"><i class="fas fa-user w-4 text-slate-400"></i>About Me</span><span class="text-xs text-slate-500">Read biography & vision</span></a>
+            <a href="work.html" class="command-item flex items-center justify-between rounded-xl px-3 py-2 text-sm text-slate-300 transition hover:bg-slate-800 hover:text-amber-400"><span class="flex items-center gap-3"><i class="fas fa-briefcase w-4 text-slate-400"></i>Work & Services</span><span class="text-xs text-slate-500">Speaking & event coverage</span></a>
+            <a href="videos.html" class="command-item flex items-center justify-between rounded-xl px-3 py-2 text-sm text-slate-300 transition hover:bg-slate-800 hover:text-amber-400"><span class="flex items-center gap-3"><i class="fas fa-film w-4 text-slate-400"></i>Video Library</span><span class="text-xs text-slate-500">Search all uploads</span></a>
+            <a href="community.html" class="command-item flex items-center justify-between rounded-xl px-3 py-2 text-sm text-slate-300 transition hover:bg-slate-800 hover:text-amber-400"><span class="flex items-center gap-3"><i class="fas fa-users w-4 text-slate-400"></i>Community</span><span class="text-xs text-slate-500">Faith and fellowship</span></a>
+            <a href="contact.html" class="command-item flex items-center justify-between rounded-xl px-3 py-2 text-sm text-slate-300 transition hover:bg-slate-800 hover:text-amber-400"><span class="flex items-center gap-3"><i class="fas fa-envelope w-4 text-slate-400"></i>Contact</span><span class="text-xs text-slate-500">Send a message</span></a>
+          </div>
+        </div>
+
+        <div class="command-group">
+          <p class="mb-1 px-3 text-[10px] font-bold uppercase tracking-wider text-slate-500">Popular Videos</p>
+          <div class="space-y-1">
+            <a href="https://www.youtube.com/watch?v=txXEsO16c3c" target="_blank" rel="noopener" class="command-item flex items-center justify-between rounded-xl px-3 py-2 text-sm text-slate-300 transition hover:bg-slate-800 hover:text-amber-400"><span class="flex items-center gap-3"><i class="fab fa-youtube w-4 text-red-500"></i>Change Starts Right Now</span><span class="text-xs text-slate-500">Motivation Short</span></a>
+            <a href="https://www.youtube.com/watch?v=7931juMhl_M" target="_blank" rel="noopener" class="command-item flex items-center justify-between rounded-xl px-3 py-2 text-sm text-slate-300 transition hover:bg-slate-800 hover:text-amber-400"><span class="flex items-center gap-3"><i class="fab fa-youtube w-4 text-red-500"></i>The Secret Behind Your College Major</span><span class="text-xs text-slate-500">Life Wisdom</span></a>
+            <a href="https://www.youtube.com/watch?v=JVQM-QVRKV8" target="_blank" rel="noopener" class="command-item flex items-center justify-between rounded-xl px-3 py-2 text-sm text-slate-300 transition hover:bg-slate-800 hover:text-sky-400"><span class="flex items-center gap-3"><i class="fab fa-youtube w-4 text-sky-400"></i>Come To Jesus Ministry</span><span class="text-xs text-slate-500">Community & Faith</span></a>
+          </div>
+        </div>
+
+        <div class="command-group">
+          <p class="mb-1 px-3 text-[10px] font-bold uppercase tracking-wider text-slate-500">Actions</p>
+          <div class="space-y-1">
+            <a href="https://www.youtube.com/channel/UCjREHM2Ieny7s2t3VzfFR4Q?sub_confirmation=1" target="_blank" rel="noopener" class="command-item flex items-center justify-between rounded-xl px-3 py-2 text-sm text-slate-300 transition hover:bg-slate-800 hover:text-amber-400"><span class="flex items-center gap-3"><i class="fas fa-bell w-4 text-red-500"></i>Subscribe on YouTube</span><span class="text-xs text-slate-500">Official Channel</span></a>
+            <a href="work.html#booking" class="command-item flex items-center justify-between rounded-xl px-3 py-2 text-sm text-slate-300 transition hover:bg-slate-800 hover:text-amber-400"><span class="flex items-center gap-3"><i class="fas fa-envelope w-4 text-amber-400"></i>Book for an Event / Message</span><span class="text-xs text-slate-500">Speaking Inquiry</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div id="paletteEmpty" class="hidden py-8 text-center text-sm text-slate-400">No matches found.</div>
+      <div class="flex items-center justify-between border-t border-slate-800 bg-slate-950/70 px-4 py-2.5 text-[11px] text-slate-500"><span>Tip: Press <kbd class="font-mono text-slate-400">Esc</kbd> to close</span><span class="text-amber-400">Tubaste Yusuphu Hub</span></div>
+    </div>
+  </div>
+
+  <script>
+    const backdrop = document.getElementById('paletteBackdrop');
+    const searchInput = document.getElementById('paletteSearch');
+
+    function openPalette() {
+      backdrop.classList.remove('hidden');
+      backdrop.classList.add('flex');
+      searchInput.value = '';
+      filterCommands('');
+      setTimeout(() => searchInput.focus(), 50);
+    }
+
+    function closePalette() {
+      backdrop.classList.add('hidden');
+      backdrop.classList.remove('flex');
+      searchInput.blur();
+    }
+
+    function filterCommands(query) {
+      const q = query.toLowerCase().trim();
+      let visibleCount = 0;
+
+      document.querySelectorAll('#paletteBackdrop .command-item').forEach(item => {
+        const matches = item.textContent.toLowerCase().includes(q);
+        item.classList.toggle('hidden', !matches);
+        if (matches) visibleCount++;
+      });
+
+      document.querySelectorAll('#paletteBackdrop .command-group').forEach(group => {
+        const hasVisibleItem = group.querySelector('.command-item:not(.hidden)');
+        group.style.display = hasVisibleItem ? 'block' : 'none';
+      });
+
+      document.getElementById('paletteEmpty').classList.toggle('hidden', visibleCount > 0);
+    }
+
+    document.addEventListener('keydown', event => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault();
+        backdrop.classList.contains('hidden') ? openPalette() : closePalette();
+      }
+      if (event.key === 'Escape' && !backdrop.classList.contains('hidden')) closePalette();
+    });
+
+    backdrop.addEventListener('click', event => {
+      if (event.target === backdrop) closePalette();
+    });
+  </script>
+</body>
+</html>
