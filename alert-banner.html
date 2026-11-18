@@ -1,1 +1,50 @@
+<!-- ================= TUBASSTE YUSUPHU TOP ALERT BANNER ================= -->
+<!-- Place this immediately above the <nav> element in any of your pages -->
 
+<div id="siteAlertBanner" class="relative z-50 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-950 px-4 py-2.5 sm:px-6 transition-all duration-300 ease-in-out">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+    
+    <!-- Left / Center Message -->
+    <div class="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm font-medium mx-auto">
+      <span class="inline-flex items-center gap-1.5 bg-black/15 text-slate-950 font-bold px-2.5 py-0.5 rounded-full text-[11px] uppercase tracking-wider">
+        <span class="w-1.5 h-1.5 rounded-full bg-red-600 animate-ping"></span>
+        New Release
+      </span>
+      <p class="truncate sm:overflow-visible">
+        Watch the latest message: 
+        <strong class="font-extrabold underline underline-offset-2">"Change Starts Right Now"</strong>
+      </p>
+      <a href="https://www.youtube.com/watch?v=txXEsO16c3c" target="_blank" 
+         class="inline-flex items-center gap-1 bg-slate-950 hover:bg-slate-900 text-white font-semibold text-xs px-3 py-1 rounded-full transition ml-1 shrink-0">
+        Watch Now <i class="fas fa-arrow-right text-[10px]"></i>
+      </a>
+    </div>
+
+    <!-- Dismiss Button -->
+    <button type="button" onclick="dismissBanner()" aria-label="Dismiss banner"
+            class="text-slate-900/80 hover:text-black p-1 rounded-lg hover:bg-black/10 transition shrink-0">
+      <i class="fas fa-times text-sm"></i>
+    </button>
+  </div>
+</div>
+
+<script>
+  // Hide banner if previously dismissed in this browser session
+  if (sessionStorage.getItem('tubaste_alert_dismissed') === 'true') {
+    const banner = document.getElementById('siteAlertBanner');
+    if (banner) banner.style.display = 'none';
+  }
+
+  function dismissBanner() {
+    const banner = document.getElementById('siteAlertBanner');
+    if (banner) {
+      banner.style.opacity = '0';
+      banner.style.transform = 'translateY(-100%)';
+      setTimeout(() => {
+        banner.style.display = 'none';
+      }, 300);
+      sessionStorage.setItem('tubaste_alert_dismissed', 'true');
+    }
+  }
+</script>
+<!-- ================= END ALERT BANNER ================= -->
